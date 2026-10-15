@@ -1,0 +1,72 @@
+{
+  "user/inc/calibration_config.h": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "user/inc/calibration_debug.h": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "user/src/calibration_debug.c": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "tools/calibrate_pyocd.py": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "tools/tests/test_calibrate_pyocd.py": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "tools/tests/test_calibration_debug.c": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "tools/tests/test_calibration_integration.c": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "docs/CALIBRATION_GUIDE.md": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "docs/IMPLEMENTATION_REPORT.md": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "docs/TODO.md": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "docs/MILESTONES.md": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "docs/REVIEW_LOG.md": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  },
+  "user/src/wifi_assistant.c": {
+    "encoding": "utf-8",
+    "newline": "CRLF",
+    "passed": true
+  },
+  "tools/tests/test_calibration_wifi.py": {
+    "encoding": "utf-8",
+    "newline": "LF",
+    "passed": true
+  }
+}

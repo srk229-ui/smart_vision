@@ -1,0 +1,71 @@
+{
+  "task": "M2-16",
+  "status": "accepted by primary agent",
+  "closed_at": "2026-10-12T17:23:17.090600+08:00",
+  "reference": {
+    "path": "D:\\镜头组\\20th_smart_vision\\docs\\完整闭环代码解析.md",
+    "sha256": "9f0b42f64f4879cdd206841e56a411cfb925b447103654b8a2a99e51519789a7",
+    "firmware_sha256": "dfd881aaee297055273f769dc813331d7e01df34ffae85077b847942de1db364",
+    "hardware_tested": false
+  },
+  "report_sha256": "592c25fc0d41e99ae74a631b1f5b5d32ef887fb4be23d438d102b8c891721402",
+  "index_tool_sha256": "1c66e6530960315f6c33b5bf859b5358e5726d1890307953261cdee5308e9c6c",
+  "agent_policy_sha256": "433018f6b00f931b32a660a1b919e0b19f1d1bf04158738c388630925b40b914",
+  "functional_chapters": 15,
+  "unique_definitions": 111,
+  "chapter_links": 204,
+  "all_function_links": 315,
+  "local_file_links": 349,
+  "toc_anchors": 19,
+  "index_maintenance_cases": 8,
+  "all_checks_pass": true,
+  "independent_reviewers": [
+    "current_firmware",
+    "reference_port"
+  ],
+  "module_draft_authors": [
+    "current_firmware",
+    "reference_port",
+    "telemetry_loop"
+  ],
+  "semantic_findings_closed": [
+    "independent left/right base targets vs common V1 setting",
+    "separate camera success/race drop examples",
+    "visual replay did not execute full-car protection/PWM"
+  ],
+  "firmware_and_project_sources_unchanged": true,
+  "reference_document_unchanged": true,
+  "six_mermaid_blocks_unchanged": true,
+  "three_timeline_assets_unchanged": true,
+  "firmware_sha256": "dfd881aaee297055273f769dc813331d7e01df34ffae85077b847942de1db364",
+  "firmware_rebuilt_this_revision": false,
+  "hardware_tested": false,
+  "M3": "pending physical evidence",
+  "M4": "locked until M3 passes",
+  "drafts": [
+    {
+      "file": "control.md",
+      "sha256": "aa3f6e2265f92881fa7a4bf12fbb818b18bdd13e3283c676c0b9a070dfe6d396"
+    },
+    {
+      "file": "core.md",
+      "sha256": "7542a95bbadf7ec9f2707c492e04b3c150685508c558be094e2b498841ce0c97"
+    },
+    {
+      "file": "display.md",
+      "sha256": "bc8621341dea4a90602c9043729658087a0d237f65fab3ebc58a7a604a9f6f36"
+    },
+    {
+      "file": "verification.md",
+      "sha256": "1e5d174f09314244ff708c99ff7e23a9e6eb2eab31cb525b0ecfab3b4df9c4ba"
+    },
+    {
+      "file": "vision.md",
+      "sha256": "4a84f00584b3985f5c04275a7206b9b9db025438e2f5848fe9bd185e81a04b67"
+    },
+    {
+      "file": "wifi.md",
+      "sha256": "3b39fa3ef4aeb6670668ccda9eac39f7386ebe345478f0b06a9091ebea59187a"
+    }
+  ]
+}

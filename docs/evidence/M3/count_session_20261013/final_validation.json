@@ -1,0 +1,10 @@
+{
+  "source_manifest_matches": true,
+  "report_file_links_exist": true,
+  "flash_verified": true,
+  "hardware_protocol_passed": true,
+  "count_console_pid": 38072,
+  "count_only": true,
+  "skip_save": true,
+  "measurement_not_started_automatically": true
+}

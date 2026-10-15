@@ -1,0 +1,78 @@
+# Keil 编译产物及调试缓存
+/mdk/Objects/
+/mdk/Listings/
+/mdk/*.uvgui*
+/mdk/*.bak
+/mdk/*.tmp
+/mdk/JLinkLog.txt
+/mdk/.vscode/*.log
+/mdk/.vscode/*.lock
+
+# 临时测试日志、截图、执行记录和备份
+/mdk/*.log
+/mdk/*.json
+/mdk/*.png
+/mdk/*_backup_*/
+/tools/*_result.json
+
+# IAR 编译产物及本机调试状态
+/iar/**/Debug/
+/iar/**/Release/
+/iar/**/*.dep
+/iar/**/*.ewd
+/iar/**/*.ewt
+/iar/**/settings/*.dnx
+/iar/**/settings/*.cspy.bat
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 宿主验证的可重建产物
+/docs/evidence/**/*.exe
+/docs/evidence/**/*.obj
+/docs/evidence/**/*.pdb
+/docs/evidence/**/*.ilk
+/drivers/wifi_spi_v2/tests/_build/
+
+# M3本地编译器临时文件，不作为验收证据
+/docs/evidence/M3/**/_temp/
+/tools/tests/_build*/
+
+# 通用运行日志、临时文件及编辑器备份；已跟踪文件不受忽略规则影响
+*.log
+*.log.*
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+_temp/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# 本机标定会话的启动脚本和临时状态；保留实测JSON/CSV、分析结果及固件备份
+/calibration_records/**/console.py
+/calibration_records/**/start_count_console.py
+/calibration_records/servo_session_*/*.py
+/calibration_records/**/*.ps1
+/calibration_records/**/launch*.json
+/calibration_records/**/ready*.json
+/calibration_records/**/count_launch.json
+/calibration_records/**/count_preflight.json
+/calibration_records/**/count_started.json
+/calibration_records/*_console_path.txt
+
+# 临时协议执行输出；原始测量与结构化验收结果继续保留
+/docs/evidence/**/hardware/protocol_check*.txt
+
+/full_track_sim/
+/speed_test_sim/
+/docs/
+
+/calibration_records/
+
+# 发布分支排除本地仿真项目
+/speed_pi_sim/

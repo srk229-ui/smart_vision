@@ -1,0 +1,129 @@
+{
+  "frames": 14,
+  "valid_frames": 5,
+  "evidence_type": "synthetic",
+  "time_source": "assumed_replay_period",
+  "hardware_acceptance": false,
+  "build": {
+    "compiler": "msvc",
+    "compiler_path": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe",
+    "fallback_reason": null,
+    "exports": [
+      "get_hist_gram",
+      "get_threshold_otsu",
+      "binaryzation_process",
+      "vision_process",
+      "vision_set_reference_width",
+      "vision_set_control_band",
+      "vision_reset"
+    ],
+    "source": "D:\\镜头组\\demo\\user\\src\\img_process.c",
+    "source_sha256": "3ca6b83b0521512955cfe3640027787d4f3a27a69dd23c38fb03b55551b2f78a"
+  },
+  "shadow_checks": [
+    {
+      "name": "shadow_readable_synthetic",
+      "evidence_type": "synthetic",
+      "input_gray_levels": [
+        25,
+        45,
+        140,
+        205
+      ],
+      "input_sha256": "b85cf126e46845f352632949a37c406bce771d24899f4bf7930bff50f9166c94",
+      "control_rows": [
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
+      "actual": {
+        "valid": 1,
+        "threshold": 45,
+        "error_px": 0.0,
+        "confidence": 1.0,
+        "valid_rows": 120,
+        "reconstructed_rows": 0,
+        "control_row_quality": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "expected_default_configuration": {
+        "valid": 1,
+        "threshold": 45,
+        "error_px": 0.0,
+        "confidence": 1.0,
+        "valid_rows": 120,
+        "reconstructed_rows": 0,
+        "control_row_quality": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "description": "第72至105行局部阴影：背景25、白赛道140；其余背景45、白赛道205。默认控制带预期仍可辨认。"
+      },
+      "expectation_checked": true,
+      "expectation_passed": true,
+      "hardware_acceptance": false
+    },
+    {
+      "name": "shadow_deep_synthetic",
+      "evidence_type": "synthetic",
+      "input_gray_levels": [
+        15,
+        35,
+        45,
+        205
+      ],
+      "input_sha256": "ae0c4dff66819e7ce05a6d886e7dc7cad277081c20550f453b7c988ae761f024",
+      "control_rows": [
+        80,
+        85,
+        90,
+        95,
+        100
+      ],
+      "actual": {
+        "valid": 0,
+        "threshold": 45,
+        "error_px": 0.0,
+        "confidence": 0.0,
+        "valid_rows": 86,
+        "reconstructed_rows": 0,
+        "control_row_quality": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected_default_configuration": {
+        "valid": 0,
+        "threshold": 45,
+        "error_px": 0.0,
+        "confidence": 0.0,
+        "valid_rows": 86,
+        "reconstructed_rows": 0,
+        "control_row_quality": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "description": "第72至105行深阴影：背景15、白赛道35。全局Otsu预期丢失控制带；无效结果的零误差不能解释成居中。"
+      },
+      "expectation_checked": true,
+      "expectation_passed": true,
+      "hardware_acceptance": false
+    }
+  ]
+}

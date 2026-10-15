@@ -1,0 +1,450 @@
+{
+  "startedAt": "2026-10-12T07:38:24.416Z",
+  "method": "Local file URLs, self-contained SVG/HTML, headless Edge; no local HTTP server needed",
+  "cases": [
+    {
+      "t": 0,
+      "ok": true,
+      "actual": [
+        0,
+        "F-1",
+        "F-1",
+        null,
+        null,
+        "pit",
+        null
+      ]
+    },
+    {
+      "t": 0.2,
+      "ok": true,
+      "actual": [
+        0.2,
+        "F-1",
+        "F-1",
+        0,
+        null,
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 5,
+      "ok": true,
+      "actual": [
+        5,
+        "F-1",
+        "F-1",
+        0,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 6.5,
+      "ok": true,
+      "actual": [
+        6.5,
+        "F-1",
+        "F-1",
+        0,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 10,
+      "ok": true,
+      "actual": [
+        10,
+        "F-1",
+        "F-1",
+        0,
+        "F-1",
+        "pit",
+        null
+      ]
+    },
+    {
+      "t": 10.2,
+      "ok": true,
+      "actual": [
+        10.2,
+        "F-1",
+        "F-1",
+        10,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 20,
+      "ok": true,
+      "actual": [
+        20,
+        "F0",
+        "F-1",
+        10,
+        "F-1",
+        "csi",
+        20
+      ]
+    },
+    {
+      "t": 20.05,
+      "ok": true,
+      "actual": [
+        20.05,
+        "F0",
+        "F-1",
+        10,
+        "F-1",
+        "pit",
+        null
+      ]
+    },
+    {
+      "t": 20.25,
+      "ok": true,
+      "actual": [
+        20.25,
+        "F0",
+        "F-1",
+        20,
+        "F-1",
+        "vision",
+        null
+      ]
+    },
+    {
+      "t": 22.25,
+      "ok": true,
+      "actual": [
+        22.25,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "io",
+        null
+      ]
+    },
+    {
+      "t": 23.25,
+      "ok": true,
+      "actual": [
+        23.25,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 25,
+      "ok": true,
+      "actual": [
+        25,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 26,
+      "ok": true,
+      "actual": [
+        26,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 26.5,
+      "ok": true,
+      "actual": [
+        26.5,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 30,
+      "ok": true,
+      "actual": [
+        30,
+        "F0",
+        "F0",
+        20,
+        "F-1",
+        "pit",
+        null
+      ]
+    },
+    {
+      "t": 30.2,
+      "ok": true,
+      "actual": [
+        30.2,
+        "F0",
+        "F0",
+        30,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 40,
+      "ok": true,
+      "actual": [
+        40,
+        "F1",
+        "F0",
+        30,
+        "F-1",
+        "csi",
+        40
+      ]
+    },
+    {
+      "t": 40.05,
+      "ok": true,
+      "actual": [
+        40.05,
+        "F1",
+        "F0",
+        30,
+        "F-1",
+        "pit",
+        null
+      ]
+    },
+    {
+      "t": 40.25,
+      "ok": true,
+      "actual": [
+        40.25,
+        "F1",
+        "F0",
+        40,
+        "F-1",
+        "vision",
+        null
+      ]
+    },
+    {
+      "t": 42.25,
+      "ok": true,
+      "actual": [
+        42.25,
+        "F1",
+        "F1",
+        40,
+        "F-1",
+        "io",
+        null
+      ]
+    },
+    {
+      "t": 43.25,
+      "ok": true,
+      "actual": [
+        43.25,
+        "F1",
+        "F1",
+        40,
+        "F-1",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 45,
+      "ok": true,
+      "actual": [
+        45,
+        "F1",
+        "F1",
+        40,
+        "F0",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 46,
+      "ok": true,
+      "actual": [
+        46,
+        "F1",
+        "F1",
+        40,
+        "F0",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 46.5,
+      "ok": true,
+      "actual": [
+        46.5,
+        "F1",
+        "F1",
+        40,
+        "F0",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 50.2,
+      "ok": true,
+      "actual": [
+        50.2,
+        "F1",
+        "F1",
+        50,
+        "F0",
+        "other",
+        null
+      ]
+    },
+    {
+      "t": 60,
+      "ok": true,
+      "actual": [
+        60,
+        "F2",
+        "F1",
+        50,
+        "F0",
+        "csi",
+        60
+      ]
+    }
+  ],
+  "screenshots": [
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/timeline-26ms.png",
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/cards-26ms.png",
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/timeline-46ms.png",
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/cards-46ms.png",
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/control_timeline_overview.png",
+    "C:/Users/25711/.codex/visualizations/2026/10/12/01a12e5e-424d-7442-8eb9-0ae34b112181/timeline-check/control_timeline_10ms.png"
+  ],
+  "errors": [],
+  "blockedRequests": [],
+  "cards26": {
+    "camera-frame": "F0",
+    "vision-frame": "F0",
+    "pit-frame": "F-1",
+    "servo-frame": "F-1",
+    "pit-detail": "到期20 ms，执行20.05—20.25 ms。速度PI用本次编码器。",
+    "servo-detail": "脉冲25.00—26.50 ms；当前处于高电平。"
+  },
+  "cards46": {
+    "camera-frame": "F1",
+    "vision-frame": "F1",
+    "pit-frame": "F0",
+    "servo-frame": "F0",
+    "pit-detail": "到期40 ms，执行40.05—40.25 ms。速度PI用本次编码器。",
+    "servo-detail": "脉冲45.00—46.50 ms；当前处于高电平。"
+  },
+  "slider60": {
+    "value": "60.00 ms",
+    "pit": "到期50 ms，执行50.00—50.20 ms。速度PI用本次编码器。",
+    "pending": "；PIT60已到期，等待CSI结束。",
+    "state": {
+      "time": 60,
+      "camera": {
+        "source": "F2",
+        "start": 40,
+        "end": 60
+      },
+      "vision": {
+        "source": "F1",
+        "start": 40.25,
+        "end": 42.25
+      },
+      "pit": {
+        "due": 50,
+        "start": 50,
+        "end": 50.2,
+        "source": "F1"
+      },
+      "servo": {
+        "start": 45,
+        "end": 46.5,
+        "source": "F0"
+      },
+      "activity": {
+        "kind": "csi",
+        "start": 60,
+        "end": 60.05,
+        "label": "CSI：完成帧F2"
+      },
+      "pending": {
+        "due": 60,
+        "start": 60.05,
+        "end": 60.25,
+        "source": "F1"
+      }
+    }
+  },
+  "duplicateIds": [],
+  "assets": [
+    {
+      "file": "D:/镜头组/demo/docs/visualizations/control_timeline_overview.svg",
+      "sha256": "c939c4d0b07e5c8f8bbd493c2112bd16b3af04dfd074ae03a144a888eb209d70"
+    },
+    {
+      "file": "D:/镜头组/demo/docs/visualizations/control_timeline_10ms.svg",
+      "sha256": "aa43bfcffd18978ea2272b6915d67f9cd3d6f99dba6b5db8bb2df5137aa3713a"
+    },
+    {
+      "file": "D:/镜头组/demo/docs/visualizations/control_timeline.html",
+      "sha256": "81e2ec0834a9d95ec40d377006f03003e69c24c3e3bb9bcc7ec355555362cfd3"
+    }
+  ],
+  "ok": true,
+  "browserClosed": true,
+  "finishedAt": "2026-10-12T07:41:44.825Z",
+  "svgBounds": [
+    {
+      "file": "control_timeline_overview.svg",
+      "width": 1480,
+      "height": 922,
+      "clipped": []
+    },
+    {
+      "file": "control_timeline_10ms.svg",
+      "width": 1480,
+      "height": 784,
+      "clipped": []
+    }
+  ],
+  "browserVersion": "155.0.4283.45",
+  "boundsCheck": "Uses rendered viewport coordinates, including cursor transforms; preceding local getBBox false positive corrected.",
+  "generator": {
+    "file": "D:/镜头组/demo/tools/render_control_timeline.py",
+    "sha256": "7165f18d363bb8ac5265973b47b6d9b08d20a16f9c5ad016013dd5ca5cc11177"
+  },
+  "finalTextReview": "Configured periods, code deadline budget, teaching assumptions and derived results labelled next to values; overview explicitly distinguishes visual sources from encoder speed PI."
+}

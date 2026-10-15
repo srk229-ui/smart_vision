@@ -1,0 +1,28 @@
+Independent review evidence 2026-10-12T13:39:39.479380+08:00
+GCC 8.1, -std=c99 -Wall -Wextra -Werror
+Software fixture only; no module, PWM or physical timing validation.
+Before-fix actual observation: cached partial=3 free=125; next receive=128 includes STOP; STOP calls=0 leftover=3 updates=0.
+libraries\zf_components\seekfree_assistant.c SHA256=466b8fc9b9ff46c3022b308fd214121762b9172db7cfb008cacd8d953f64260a
+demo\user\src\wifi_assistant.c SHA256=510e44024bfae001f74549e464369501aaddc828a5d71355e6bb114440f7dd28
+demo\drivers\wifi_spi_v2\zf_device_wifi_spi.c SHA256=d755623fd10d781d80fa493a75a5bd581eff7731bc4d1c253508a0fb2bbe0d18
+After-fix actual output:
+cached partial=3 free=125
+next transport burst=128 includes STOP
+STOP calls=1 parser_leftover=0 transport_unread=3
+unread tail retained; receive_reset clears partial: PASS
+oversized callback rejected, counter=1, flags cleared: PASS
+PASS independent_wifi_review: real FIFO + parser + observer + apply, half packet with 128-byte burst containing STOP
+
+Final communication review 2026-10-12T13:47:31.903555+08:00
+Independent rerun: python demo/drivers/wifi_spi_v2/tests/test_m2_wifi.py
+demo\user\src\wifi_assistant.c SHA256=bae2251b28e4dc5b4c0b2e3421ed798350088f1fa35b8c473bf1af8ac037bcbb
+demo\drivers\wifi_spi_v2\zf_device_wifi_spi.c SHA256=d755623fd10d781d80fa493a75a5bd581eff7731bc4d1c253508a0fb2bbe0d18
+libraries\zf_components\seekfree_assistant.c SHA256=466b8fc9b9ff46c3022b308fd214121762b9172db7cfb008cacd8d953f64260a
+demo\drivers\wifi_spi_v2\tests\test_m2_wifi.py SHA256=37c4bec99b26e9cdd2502e011be3b743e00b8e99fdff17354b8a2921ea4a4621
+PASS V1 manual request contract (10 scenarios)
+PASS checked SPI normal, alias, busy, TX, RX, error, shared receive/send deadline and wrap (10 scenarios)
+PASS actual FIFO + V1 parser + observer + apply: STOP orders, bad checksum, reconnect, 3B+128B burst, receive error (7 scenarios)
+Software-only evidence: no physical module, PWM or timing validation.
+Static review: receive_error_count now shares poll fault/reset/return path with SPI errors; originally-running iteration retains runtime budget and skips stopped retry/reconnect; CPOL/CPHA and CCR preserved; all running SPI busy/FIFO waits have checked deadlines.
+Independent review result: PASS; no remaining identified P1/P2 in reviewed M2 paths. Physical SPI timing and module compatibility remain M3 evidence.
+

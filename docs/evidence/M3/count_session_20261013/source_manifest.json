@@ -1,0 +1,17 @@
+{
+  "hash_algorithm": "sha256",
+  "files": {
+    "user/inc/calibration_config.h": "c28fd9ca447d48fd3f5436a9eceebcfa7d16bcd05e82125a8ed24d0642c14a46",
+    "user/inc/calibration_debug.h": "018c823ece21b1e88ffc6f9e89df76c6c0a9a509225c452a8c80cf5612b990a6",
+    "user/src/calibration_debug.c": "49464aa9156b2b51bc2ba0f84a8b06208e26115e2b6e7ea5f7147cfaa82f318e",
+    "user/src/wifi_assistant.c": "9f9a807d31fc4cfa647d5fe34abcaede779755bc5e4420c0d4eb64f45c153681",
+    "tools/calibrate_pyocd.py": "074d7eb2e3333524865174dfef8c8f3d3e683865291145f05ca092e887ff4ca5",
+    "tools/build_calibration.py": "ec8e071744894083046a5568f1daa440112b264e388b126d09db81c09a874c4e",
+    "tools/run_calibration_checks.py": "e6aba24d28c569448ac5ab2b242af4009ae64777a84e505e968eb2bce61606f3",
+    "tools/tests/test_calibrate_pyocd.py": "d9f686e6edd2efed362e2bfe14cfd58e152f859b4eea30c39cedc1dabc43bfb6",
+    "tools/tests/test_calibration_debug.c": "98f479311d62d76be11c7e7c28c453e02aaff06daaeee49133b9d18d154c425f",
+    "tools/tests/test_calibration_integration.c": "033b76cf6d2d25117a2309dcb2c6bce5ac4ff74e691ae38818f86c50738eedba",
+    "tools/tests/test_calibration_wifi.py": "9f6a7078b6f70ec88162cfc9c26f887ad18e0fb0f269e0b5552b444491037f99",
+    "mdk/rt1064.uvprojx": "650cf10c5c9b0e86717d8913827318ea56c03ecf471717e7d553c0ecfc05b401"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "case": "real ISR definition; commented duplicate is ignored",
+      "pass": true
+    },
+    {
+      "case": "chapter label and destination line both refreshed",
+      "pass": true
+    },
+    {
+      "case": "Python def is located through AST",
+      "pass": true
+    },
+    {
+      "case": "C strings comments and prototypes are not definitions",
+      "pass": true
+    },
+    {
+      "case": "missing function is rejected",
+      "pass": true
+    },
+    {
+      "case": "ambiguous function definitions are rejected",
+      "pass": true
+    },
+    {
+      "case": "chapter additions are included once in global table",
+      "pass": true
+    },
+    {
+      "case": "existing chapter links are idempotent",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "firmware_compiled": false,
+  "hardware_tested": false
+}

@@ -1,0 +1,9 @@
+{
+  "firmware": "D:\\镜头组\\demo\\docs\\evidence\\M3\\candidate1_20261013\\builds\\calibration_readonly\\firmware.axf",
+  "algorithm": "C:\\Keil_v5\\ARM\\PACK\\NXP\\MIMXRT1064_DFP\\15.0.0\\arm\\MIMXRT1064_QSPI_4KB_SEC.FLM",
+  "algorithm_sha256": "a83769b19bf0ca962ad74d8c644c763ed3725b2f8d7f0efc0d8a5d8f46633d59",
+  "frequency": 100000,
+  "verified": true,
+  "reset": "SYSRESETREQ",
+  "cpu_state_after_reset": "State.RUNNING"
+}

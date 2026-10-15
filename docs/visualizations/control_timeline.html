@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>控制与硬件的公共时间轴 · 离线教学示例</title>
+<style>
+:root{color-scheme:dark;--bg:#080f1d;--panel:#131f32;--line:#2c3c54;--ink:#ecf4ff;--muted:#99adc7}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% 0,#18253b 0,transparent 46%),var(--bg);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.55}
+main{max-width:1560px;margin:auto;padding:36px 30px 44px}.eyebrow{font-size:12px;letter-spacing:2px;color:#8fa9ce;font-weight:700;margin:0 0 12px}h1{font-size:clamp(25px,3vw,36px);line-height:1.3;margin:0 0 14px}h2{font-size:21px;margin:0 0 14px}.intro{color:var(--muted);max-width:1120px;margin:0 0 20px;font-size:15px}.notice{padding:14px 18px;background:#25251f;border:1px solid #5a4933;border-radius:12px;color:#ffd3a4;font-size:14px;margin-bottom:22px}.notice small{display:block;color:#c6b299;margin-top:5px}.controls{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}.time{min-width:153px}.time label{display:block;color:var(--muted);font-size:12px}.time output{font-size:26px;font-variant-numeric:tabular-nums;font-weight:700}.slider{flex:1;min-width:250px}.slider input{width:100%;accent-color:#92b8ff;cursor:pointer}.range-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}button{background:#21324e;border:1px solid #486488;border-radius:8px;color:var(--ink);padding:10px 15px;font:inherit;cursor:pointer}button:hover{background:#2d466b}button:focus-visible,input:focus-visible{outline:2px solid #aaccff;outline-offset:4px}.buttons{display:flex;gap:9px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:17px 0}.card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--color);border-radius:12px;padding:14px 17px;min-height:150px}.card h3{font-size:13px;color:var(--muted);font-weight:500;margin:0 0 5px}.frame{font-size:30px;color:var(--color);font-weight:700;line-height:1.35}.card p{font-size:12px;color:var(--muted);margin:7px 0 0;min-height:36px}.activity{background:#101c2e;border:1px solid var(--line);border-radius:10px;margin:0 0 22px;padding:11px 16px;font-size:14px;color:#b9cbe5}.activity strong{color:var(--ink)}.figure{border:1px solid var(--line);border-radius:15px;overflow:auto;background:#0b1220;margin-bottom:22px}.figure svg{display:block;width:100%;height:auto;min-width:1060px}.zoom svg{min-width:1060px}.section-note{font-size:14px;color:var(--muted);margin:-2px 0 16px}.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.fact{background:var(--panel);border:1px solid var(--line);padding:17px 18px;border-radius:12px;font-size:13px;color:var(--muted)}.fact strong{display:block;color:var(--ink);font-size:15px;margin-bottom:7px}footer{margin-top:23px;color:#8399b7;font-size:12px}noscript{display:block;padding:12px;color:#ffd3a4}@media(max-width:950px){main{padding:24px 16px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:1fr}.figure svg{min-width:1080px}}@media(max-width:560px){.cards{grid-template-columns:1fr 1fr;gap:8px}.card{padding:12px 10px}.frame{font-size:26px}.controls{gap:10px;padding:14px}.time{min-width:120px}.slider{min-width:180px}.buttons{width:100%}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">离线示意 / 未实测 / RUNNING · TRACK</p>
+<h1>把采集、计算和脉冲放在同一条时间轴</h1>
+<p class="intro">拖动时间，观察最新图像何时完成采集、何时发布视觉结果，以及后续PIT和舵机脉冲何时采用它。窗口前F-1已有效；本页不连接车辆。</p>
+<div class="notice"><strong>代码已配置/据其换算（未实测）</strong>　PIT 10 ms / 100 Hz；相机50 FPS / 20 ms；舵机50 Hz / 20 ms；电机17 kHz / 约58.8 μs（每10 ms约170周期）。
+<small><strong>教学假设</strong>　初始F-1缓存；CSI 0.05 ms；整轮PIT CPU 0.20 ms；视觉CPU 2 ms；一次运行收发1 ms；舵机相位5 / 25 / 45 ms、1.5 ms中位脉宽。</small>
+<small><strong>按假设推演</strong>　视觉22.25 / 42.25 ms发布；余量6.75 ms；26 / 46 ms帧来源状态。　<strong>代码预算</strong>　单轮运行收发截止2 ms，物理最坏耗时待测。</small>
+<small>横轴是独立教学经过时间，不是当前10 ms量化的control_now_ms。相机灰条表示20 ms帧周期/采集传输，曝光时长未展开。</small></div>
+<section class="controls" aria-label="查看时间">
+<div class="time"><label for="time-slider">当前查看时间（教学）</label><output id="time-value" for="time-slider">26.00 ms</output></div>
+<div class="slider"><input id="time-slider" type="range" min="0" max="60" step="0.05" value="26" aria-label="查看时间，单位毫秒"><div class="range-labels"><span>0 ms</span><span>20 ms</span><span>40 ms</span><span>60 ms</span></div></div>
+<div class="buttons"><button type="button" id="jump-26">看26 ms</button><button type="button" id="jump-46">看46 ms</button></div>
+</section>
+<section class="cards" aria-live="polite" aria-label="该时刻的帧来源">
+<article class="card" style="--color:#68d7e5"><h3>已完成采集 · 按假设推演</h3><div class="frame" id="camera-frame">F0</div><p id="camera-detail"></p></article>
+<article class="card" style="--color:#b6a1ff"><h3>已发布视觉 · 按假设推演</h3><div class="frame" id="vision-frame">F0</div><p id="vision-detail"></p></article>
+<article class="card" style="--color:#ffb277"><h3>最近完成PIT · 按假设推演</h3><div class="frame" id="pit-frame">F-1</div><p id="pit-detail"></p></article>
+<article class="card" style="--color:#8ae0b2"><h3>最近舵机命令来源 · 按假设推演</h3><div class="frame" id="servo-frame">F-1</div><p id="servo-detail"></p></article>
+</section>
+<div class="activity"><strong>这一刻CPU：</strong><span id="cpu-activity"></span><span id="pending-pit"></span></div>
+<section class="figure" id="overview-figure" aria-label="0至60毫秒公共时间轴"><svg xmlns="http://www.w3.org/2000/svg" width="1480" height="922" viewBox="0 0 1480 922" role="img" aria-labelledby="overview-title overview-desc">
+<title id="overview-title">采集、计算与硬件脉冲的公共时间轴</title><desc id="overview-desc">离线教学示例：26毫秒时视觉F0已发布，但最近完成PIT和最近舵机脉冲仍使用F-1作为视觉依据。</desc>
+<defs><pattern id="overview-other-hatch" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#233149"/><path d="M-2 2L2-2M0 9L9 0M7 11L11 7" stroke="#41546f" stroke-width="1"/></pattern><pattern id="overview-motor-pattern" width="5" height="30" patternUnits="userSpaceOnUse"><rect width="5" height="30" fill="#261f36"/><path d="M1 26V4H3V26" fill="none" stroke="#e99bd2" stroke-width="0.8" opacity="0.55"/></pattern></defs>
+<g font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+<rect x="0.00" y="0.00" width="1480.00" height="922.00" rx="16" fill="#0b1220" stroke="none" />
+<text x="28.00" y="36.00" font-size="25" fill="#ecf4ff" text-anchor="start" font-weight="700" >同一条时间轴，看见帧来源逐级向后传递</text>
+<rect x="1230.00" y="16.00" width="222.00" height="29.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="1341.00" y="36.00" font-size="14" fill="#ffb277" text-anchor="middle" font-weight="650" >离线示意 · 未实测</text>
+<text x="28.00" y="64.00" font-size="14" fill="#99adc7" text-anchor="start" font-weight="400" >车已 RUNNING / TRACK；窗口前 F-1 有效。横轴是独立教学经过时间，不是 control_now_ms。</text>
+<rect x="28.00" y="83.00" width="1424.00" height="71.00" rx="8" fill="#131f32" stroke="#2c3c54" />
+<text x="44.00" y="103.00" font-size="12" fill="#68d7e5" text-anchor="start" font-weight="600" >代码已配置/据其换算（未实测）：PIT 10 ms / 100 Hz；相机50 FPS / 20 ms；舵机50 Hz / 20 ms；电机17 kHz / 约58.8 μs。</text>
+<text x="44.00" y="124.00" font-size="12" fill="#ffb277" text-anchor="start" font-weight="400" >教学假设：初始F-1；CSI 0.05 ms；整轮PIT CPU 0.20 ms；视觉CPU 2 ms；收发1 ms；舵机相位5/25/45 ms、脉宽1.5 ms。</text>
+<text x="44.00" y="145.00" font-size="12" fill="#b6a1ff" text-anchor="start" font-weight="400" >按假设推演：视觉22.25/42.25 ms发布、余量6.75 ms、26/46 ms帧来源。代码预算：单轮运行收发截止2 ms，物理最坏耗时待测。</text>
+<rect x="31.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#68d7e5" stroke="none" />
+<text x="50.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >相机 · 硬件</text>
+<rect x="235.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#f29ab6" stroke="none" />
+<text x="254.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >CSI · CPU中断</text>
+<rect x="439.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#ffb277" stroke="none" />
+<text x="458.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >PIT · CPU中断</text>
+<rect x="643.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#b6a1ff" stroke="none" />
+<text x="662.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >视觉 · CPU</text>
+<rect x="847.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#79aaff" stroke="none" />
+<text x="866.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >收发 · CPU</text>
+<rect x="1051.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#8ae0b2" stroke="none" />
+<text x="1070.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >舵机 · 硬件</text>
+<rect x="1255.00" y="172.00" width="11.00" height="11.00" rx="3" fill="#e99bd2" stroke="none" />
+<text x="1274.00" y="183.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >电机 · 硬件</text>
+<text x="28.00" y="226.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >教学经过时间  /  ms</text>
+<line x1="310.00" y1="234.00" x2="310.00" y2="793.00" stroke="#2c3c54" stroke-width="1" />
+<text x="310.00" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >0</text>
+<line x1="496.67" y1="234.00" x2="496.67" y2="793.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="496.67" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >10</text>
+<line x1="683.33" y1="234.00" x2="683.33" y2="793.00" stroke="#2c3c54" stroke-width="1" />
+<text x="683.33" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >20</text>
+<line x1="870.00" y1="234.00" x2="870.00" y2="793.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="870.00" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >30</text>
+<line x1="1056.67" y1="234.00" x2="1056.67" y2="793.00" stroke="#2c3c54" stroke-width="1" />
+<text x="1056.67" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >40</text>
+<line x1="1243.33" y1="234.00" x2="1243.33" y2="793.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="1243.33" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >50</text>
+<line x1="1430.00" y1="234.00" x2="1430.00" y2="793.00" stroke="#2c3c54" stroke-width="1" />
+<text x="1430.00" y="226.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >60</text>
+<text x="28.00" y="277.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >相机帧周期</text>
+<text x="28.00" y="299.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码50 FPS → 20 ms（换算，未测）</text>
+<rect x="234.00" y="261.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="277.00" font-size="11" fill="#68d7e5" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="256.00" width="373.33" height="51.00" rx="6" fill="#243449" stroke="#4d7087" />
+<text x="496.67" y="278.00" font-size="15" fill="#68d7e5" text-anchor="middle" font-weight="650" >F0 帧周期 / 采集传输</text>
+<text x="496.67" y="298.00" font-size="12" fill="#99adc7" text-anchor="middle" font-weight="400" >0—20 ms</text>
+<line x1="683.33" y1="253.00" x2="683.33" y2="312.00" stroke="#68d7e5" stroke-width="2" />
+<rect x="683.33" y="256.00" width="373.33" height="51.00" rx="6" fill="#243449" stroke="#4d7087" />
+<text x="870.00" y="278.00" font-size="15" fill="#68d7e5" text-anchor="middle" font-weight="650" >F1 帧周期 / 采集传输</text>
+<text x="870.00" y="298.00" font-size="12" fill="#99adc7" text-anchor="middle" font-weight="400" >20—40 ms</text>
+<line x1="1056.67" y1="253.00" x2="1056.67" y2="312.00" stroke="#68d7e5" stroke-width="2" />
+<rect x="1056.67" y="256.00" width="373.33" height="51.00" rx="6" fill="#243449" stroke="#4d7087" />
+<text x="1243.33" y="278.00" font-size="15" fill="#68d7e5" text-anchor="middle" font-weight="650" >F2 帧周期 / 采集传输</text>
+<text x="1243.33" y="298.00" font-size="12" fill="#99adc7" text-anchor="middle" font-weight="400" >40—60 ms</text>
+<line x1="1430.00" y1="253.00" x2="1430.00" y2="312.00" stroke="#68d7e5" stroke-width="2" />
+<text x="28.00" y="355.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >CPU执行</text>
+<text x="28.00" y="377.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >CPU条块耗时：教学假设，非实测</text>
+<rect x="234.00" y="339.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="355.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="600" >CPU</text>
+<rect x="310.00" y="349.00" width="1120.00" height="35.00" rx="4" fill="url(#overview-other-hatch)" stroke="none" />
+<g><title>PIT 0 ms：视觉依据F-1，本次编码器用于速度PI；0.00—0.20 ms</title>
+<rect x="310.00" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<g><title>PIT 10 ms：视觉依据F-1，本次编码器用于速度PI；10.00—10.20 ms</title>
+<rect x="496.67" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<g><title>CSI：完成帧F0；20.00—20.05 ms</title>
+<rect x="683.33" y="349.00" width="0.93" height="35.00" rx="0" fill="#f29ab6" stroke="none" />
+</g>
+<g><title>PIT 20 ms：视觉依据F-1，本次编码器用于速度PI；20.05—20.25 ms</title>
+<rect x="684.27" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<g><title>视觉处理F0：发布后更新转向目标；20.25—22.25 ms</title>
+<rect x="688.00" y="349.00" width="37.33" height="35.00" rx="0" fill="#b6a1ff" stroke="none" />
+<text x="706.67" y="372.00" font-size="12" fill="#0b1220" text-anchor="middle" font-weight="700" >F0</text>
+</g>
+<g><title>一次运行收发服务示例：1 ms，非每帧波形发送；22.25—23.25 ms</title>
+<rect x="725.33" y="349.00" width="18.67" height="35.00" rx="0" fill="#79aaff" stroke="none" />
+<text x="734.67" y="371.00" font-size="10" fill="#0b1220" text-anchor="middle" font-weight="700" >IO</text>
+</g>
+<g><title>PIT 30 ms：视觉依据F0，本次编码器用于速度PI；30.00—30.20 ms</title>
+<rect x="870.00" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<g><title>CSI：完成帧F1；40.00—40.05 ms</title>
+<rect x="1056.67" y="349.00" width="0.93" height="35.00" rx="0" fill="#f29ab6" stroke="none" />
+</g>
+<g><title>PIT 40 ms：视觉依据F0，本次编码器用于速度PI；40.05—40.25 ms</title>
+<rect x="1057.60" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<g><title>视觉处理F1：发布后更新转向目标；40.25—42.25 ms</title>
+<rect x="1061.33" y="349.00" width="37.33" height="35.00" rx="0" fill="#b6a1ff" stroke="none" />
+<text x="1080.00" y="372.00" font-size="12" fill="#0b1220" text-anchor="middle" font-weight="700" >F1</text>
+</g>
+<g><title>一次运行收发服务示例：1 ms，非每帧波形发送；42.25—43.25 ms</title>
+<rect x="1098.67" y="349.00" width="18.67" height="35.00" rx="0" fill="#79aaff" stroke="none" />
+<text x="1108.00" y="371.00" font-size="10" fill="#0b1220" text-anchor="middle" font-weight="700" >IO</text>
+</g>
+<g><title>PIT 50 ms：视觉依据F1，本次编码器用于速度PI；50.00—50.20 ms</title>
+<rect x="1243.33" y="349.00" width="3.73" height="35.00" rx="0" fill="#ffb277" stroke="none" />
+</g>
+<text x="320.00" y="407.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >窄条按比例绘制；20 / 40 / 60 ms边界示例先CSI再PIT。20—30 ms详见下方放大图。</text>
+<text x="28.00" y="460.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >已发布视觉</text>
+<text x="28.00" y="482.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >发布即更新转向目标（TRACK）</text>
+<rect x="234.00" y="444.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="460.00" font-size="11" fill="#b6a1ff" text-anchor="middle" font-weight="600" >CPU</text>
+<rect x="310.00" y="450.00" width="415.33" height="41.00" rx="5" fill="#282440" stroke="#b6a1ff" />
+<text x="517.67" y="476.00" font-size="15" fill="#b6a1ff" text-anchor="middle" font-weight="650" >视觉依据 F-1</text>
+<rect x="725.33" y="450.00" width="373.33" height="41.00" rx="5" fill="#282440" stroke="#b6a1ff" />
+<text x="912.00" y="476.00" font-size="15" fill="#b6a1ff" text-anchor="middle" font-weight="650" >视觉依据 F0</text>
+<rect x="1098.67" y="450.00" width="331.33" height="41.00" rx="5" fill="#282440" stroke="#b6a1ff" />
+<text x="1264.33" y="476.00" font-size="15" fill="#b6a1ff" text-anchor="middle" font-weight="650" >视觉依据 F1</text>
+<line x1="725.33" y1="493.00" x2="725.33" y2="502.00" stroke="#b6a1ff" stroke-width="2" />
+<text x="731.33" y="515.00" font-size="11" fill="#b6a1ff" text-anchor="start" font-weight="400" >F0 发布 22.25 ms（推演）</text>
+<line x1="1098.67" y1="493.00" x2="1098.67" y2="502.00" stroke="#b6a1ff" stroke-width="2" />
+<text x="1104.67" y="515.00" font-size="11" fill="#b6a1ff" text-anchor="start" font-weight="400" >F1 发布 42.25 ms（推演）</text>
+<text x="28.00" y="558.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >最近完成PIT</text>
+<text x="28.00" y="580.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码10 ms / 100 Hz（配置，未测）</text>
+<rect x="234.00" y="542.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="558.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="600" >CPU</text>
+<rect x="313.73" y="551.00" width="560.00" height="37.00" rx="5" fill="#3a2b25" stroke="#ffb277" />
+<text x="593.73" y="575.00" font-size="15" fill="#ffb277" text-anchor="middle" font-weight="650" >所用视觉 F-1</text>
+<rect x="873.73" y="551.00" width="373.33" height="37.00" rx="5" fill="#3a2b25" stroke="#ffb277" />
+<text x="1060.40" y="575.00" font-size="15" fill="#ffb277" text-anchor="middle" font-weight="650" >所用视觉 F0</text>
+<rect x="1247.07" y="551.00" width="182.93" height="37.00" rx="5" fill="#3a2b25" stroke="#ffb277" />
+<text x="1338.53" y="575.00" font-size="15" fill="#ffb277" text-anchor="middle" font-weight="650" >所用视觉 F1</text>
+<line x1="310.00" y1="546.00" x2="310.00" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="310.00" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P0</text>
+<line x1="496.67" y1="546.00" x2="496.67" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="496.67" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P10</text>
+<line x1="683.33" y1="546.00" x2="683.33" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="683.33" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P20</text>
+<line x1="870.00" y1="546.00" x2="870.00" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="870.00" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P30</text>
+<line x1="1056.67" y1="546.00" x2="1056.67" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="1056.67" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P40</text>
+<line x1="1243.33" y1="546.00" x2="1243.33" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="1243.33" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P50</text>
+<line x1="1430.00" y1="546.00" x2="1430.00" y2="595.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="1430.00" y="612.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="400" >P60</text>
+<text x="28.00" y="659.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >舵机控制脉冲</text>
+<text x="28.00" y="681.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码50 Hz → 20 ms（换算，未测）</text>
+<rect x="234.00" y="643.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="659.00" font-size="11" fill="#8ae0b2" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="648.00" width="1120.00" height="55.00" rx="4" fill="#131f32" stroke="none" />
+<line x1="310.00" y1="690.00" x2="1430.00" y2="690.00" stroke="#8ae0b2" stroke-width="1.5" />
+<path d="M 403.33 690 V 656 H 431.33 V 690" fill="none" stroke="#8ae0b2" stroke-width="2"/>
+<rect x="403.33" y="656.00" width="28.00" height="34.00" rx="0" fill="#1c4d3a" stroke="none" />
+<text x="407.33" y="721.00" font-size="12" fill="#8ae0b2" text-anchor="start" font-weight="400" >5 ms相位（假设）· 来源F-1</text>
+<path d="M 776.67 690 V 656 H 804.67 V 690" fill="none" stroke="#8ae0b2" stroke-width="2"/>
+<rect x="776.67" y="656.00" width="28.00" height="34.00" rx="0" fill="#1c4d3a" stroke="none" />
+<text x="780.67" y="721.00" font-size="12" fill="#8ae0b2" text-anchor="start" font-weight="400" >25 ms相位（假设）· 来源F-1</text>
+<path d="M 1150.00 690 V 656 H 1178.00 V 690" fill="none" stroke="#8ae0b2" stroke-width="2"/>
+<rect x="1150.00" y="656.00" width="28.00" height="34.00" rx="0" fill="#1c4d3a" stroke="none" />
+<text x="1154.00" y="721.00" font-size="12" fill="#8ae0b2" text-anchor="start" font-weight="400" >45 ms相位（假设）· 来源F0</text>
+<text x="28.00" y="764.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >电机PWM</text>
+<text x="28.00" y="786.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码17 kHz → 58.8 μs（换算，未测）</text>
+<rect x="234.00" y="748.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="764.00" font-size="11" fill="#e99bd2" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="751.00" width="1120.00" height="33.00" rx="4" fill="url(#overview-motor-pattern)" stroke="#e99bd2" />
+<rect x="536.00" y="753.00" width="665.00" height="29.00" rx="4" fill="#241f32" stroke="none" />
+<text x="870.00" y="773.00" font-size="13" fill="#e99bd2" text-anchor="middle" font-weight="400" >17 kHz → 每10 ms约170周期（换算，未实测）；密纹示意连续硬件PWM</text>
+<g id="overview-cursor" transform="translate(795.33 0)">
+<line x1="0.00" y1="243.00" x2="0.00" y2="795.00" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.9"/>
+<rect x="-47.00" y="212.00" width="94.00" height="24.00" rx="6" fill="#ecf4ff" stroke="none" />
+<text x="0.00" y="229.00" font-size="13" fill="#0b1220" text-anchor="middle" font-weight="700" id="overview-cursor-label">26.00 ms</text>
+</g>
+<rect x="28.00" y="816.00" width="1424.00" height="82.00" rx="8" fill="#131f32" stroke="#2c3c54" />
+<text x="44.00" y="843.00" font-size="15" fill="#ecf4ff" text-anchor="start" font-weight="650" id="cursor-caption">26 ms（按假设推演）：采集/视觉已到F0；最近完成PIT20仍用F-1；25 ms舵机脉冲也采用F-1。</text>
+<text x="44.00" y="868.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >PIT帧号只标降速/转向视觉依据；速度PI误差来自目标与本次编码器。它不是发布新视觉时即更新的ControlSnapshot.frame_id。</text>
+<text x="44.00" y="888.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >相机灰条是帧周期/采集传输，不表示曝光必须20 ms；舵机来源追踪命令依据，不表示实测转角或真实脉宽。</text>
+</g></svg></section>
+<h2>再看这一有新帧的10 ms窗口</h2>
+<p class="section-note">20—30 ms里，CPU列出的工作共3.25 ms。相机和舵机在硬件上并行，不能拿它们的20 ms周期分摊CPU时间。</p>
+<section class="figure zoom" aria-label="20至30毫秒CPU执行时间放大"><svg xmlns="http://www.w3.org/2000/svg" width="1480" height="784" viewBox="0 0 1480 784" role="img" aria-labelledby="zoom-title zoom-desc">
+<title id="zoom-title">20至30毫秒：CPU执行时间与并行硬件</title><desc id="zoom-desc">CSI0.05加PIT0.20加视觉2.00加收发1.00等于3.25毫秒；其余6.75毫秒为未展开的主循环工作与预算，非实测空闲。</desc>
+<defs><pattern id="zoom-other-hatch" width="9" height="9" patternUnits="userSpaceOnUse"><rect width="9" height="9" fill="#233149"/><path d="M-2 2L2-2M0 9L9 0M7 11L11 7" stroke="#41546f" stroke-width="1"/></pattern><pattern id="zoom-motor-pattern" width="5" height="30" patternUnits="userSpaceOnUse"><rect width="5" height="30" fill="#261f36"/><path d="M1 26V4H3V26" fill="none" stroke="#e99bd2" stroke-width="0.8" opacity="0.55"/></pattern></defs>
+<g font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+<rect x="0.00" y="0.00" width="1480.00" height="784.00" rx="16" fill="#0b1220" stroke="none" />
+<text x="28.00" y="38.00" font-size="25" fill="#ecf4ff" text-anchor="start" font-weight="700" >放大20—30 ms：这一有新帧的CPU窗口</text>
+<rect x="1230.00" y="16.00" width="222.00" height="29.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="1341.00" y="36.00" font-size="14" fill="#ffb277" text-anchor="middle" font-weight="650" >离线示意 · 未实测</text>
+<text x="28.00" y="67.00" font-size="14" fill="#99adc7" text-anchor="start" font-weight="400" >独立教学经过时间；所有执行耗时均是假设。所列任务3.25 ms，其余6.75 ms不代表实测空闲。</text>
+<rect x="28.00" y="86.00" width="1424.00" height="68.00" rx="8" fill="#131f32" stroke="#2c3c54" />
+<text x="44.00" y="106.00" font-size="12" fill="#68d7e5" text-anchor="start" font-weight="600" >代码已配置/换算（未实测）：PIT 10 ms；相机50 FPS / 20 ms；舵机50 Hz / 20 ms；电机17 kHz / 58.8 μs（每10 ms约170周期）。</text>
+<text x="44.00" y="127.00" font-size="12" fill="#ffb277" text-anchor="start" font-weight="400" >教学CPU耗时：CSI 0.05 + PIT 0.20 + 视觉 2.00 + 收发 1.00 = 3.25 ms；按假设推演：其他主循环 / 余量6.75 ms。</text>
+<text x="44.00" y="147.00" font-size="12" fill="#b6a1ff" text-anchor="start" font-weight="400" >初始F-1、舵机相位25 ms/中位脉宽1.5 ms也是教学假设；代码预算：单轮运行收发截止2 ms，实际耗时待实测。</text>
+<line x1="310.00" y1="203.00" x2="310.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="310.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >20</text>
+<line x1="422.00" y1="203.00" x2="422.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="422.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >21</text>
+<line x1="534.00" y1="203.00" x2="534.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="534.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >22</text>
+<line x1="646.00" y1="203.00" x2="646.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="646.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >23</text>
+<line x1="758.00" y1="203.00" x2="758.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="758.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >24</text>
+<line x1="870.00" y1="203.00" x2="870.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="870.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >25</text>
+<line x1="982.00" y1="203.00" x2="982.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="982.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >26</text>
+<line x1="1094.00" y1="203.00" x2="1094.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="1094.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >27</text>
+<line x1="1206.00" y1="203.00" x2="1206.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="1206.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >28</text>
+<line x1="1318.00" y1="203.00" x2="1318.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="1318.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >29</text>
+<line x1="1430.00" y1="203.00" x2="1430.00" y2="654.00" stroke="#2c3c54" stroke-width="1" stroke-dasharray="3 5"/>
+<text x="1430.00" y="195.00" font-size="14" fill="#99adc7" text-anchor="middle" font-weight="400" >30</text>
+<text x="28.00" y="282.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >CPU这一窗</text>
+<text x="28.00" y="304.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码周期10 ms（未实测）</text>
+<rect x="234.00" y="266.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="282.00" font-size="11" fill="#ffb277" text-anchor="middle" font-weight="600" >CPU</text>
+<rect x="310.00" y="257.00" width="5.60" height="75.00" rx="0" fill="#f29ab6" stroke="none" />
+<rect x="315.60" y="257.00" width="22.40" height="75.00" rx="0" fill="#ffb277" stroke="none" />
+<rect x="338.00" y="257.00" width="224.00" height="75.00" rx="0" fill="#b6a1ff" stroke="none" />
+<text x="450.00" y="288.00" font-size="15" fill="#0b1220" text-anchor="middle" font-weight="650" >视觉 F0（假设）</text>
+<text x="450.00" y="313.00" font-size="14" fill="#0b1220" text-anchor="middle" font-weight="400" >2.00 ms</text>
+<rect x="562.00" y="257.00" width="112.00" height="75.00" rx="0" fill="#79aaff" stroke="none" />
+<text x="618.00" y="288.00" font-size="15" fill="#0b1220" text-anchor="middle" font-weight="650" >一次收发</text>
+<text x="618.00" y="313.00" font-size="14" fill="#0b1220" text-anchor="middle" font-weight="400" >1 ms·假设</text>
+<rect x="674.00" y="257.00" width="756.00" height="75.00" rx="0" fill="url(#zoom-other-hatch)" stroke="none" />
+<text x="1052.00" y="288.00" font-size="15" fill="#ecf4ff" text-anchor="middle" font-weight="650" >其他主循环 / 示例余量（推演）</text>
+<text x="1052.00" y="313.00" font-size="14" fill="#ecf4ff" text-anchor="middle" font-weight="400" >6.75 ms</text>
+<line x1="312.80" y1="253.00" x2="349.20" y2="223.00" stroke="#f29ab6" stroke-width="1.5" />
+<text x="356.20" y="222.00" font-size="13" fill="#f29ab6" text-anchor="start" font-weight="400" >CSI 0.05 ms（假设）</text>
+<line x1="326.80" y1="335.00" x2="363.76" y2="359.00" stroke="#ffb277" stroke-width="1.5" />
+<text x="370.76" y="366.00" font-size="13" fill="#ffb277" text-anchor="start" font-weight="400" >PIT CPU 0.20 ms（假设）</text>
+<text x="28.00" y="401.00" font-size="14" fill="#99adc7" text-anchor="start" font-weight="400" >PIT内部：本次编码器 → 保护 → 速度斜坡 → 左右PI → 舵机命令限速 → 写寄存器。整块0.20 ms是假设。</text>
+<text x="28.00" y="459.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >相机采集/传输</text>
+<text x="28.00" y="481.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码50 FPS → 20 ms（换算，未测）</text>
+<rect x="234.00" y="443.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="459.00" font-size="11" fill="#68d7e5" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="438.00" width="1120.00" height="48.00" rx="5" fill="#243449" stroke="#4d7087" />
+<text x="870.00" y="468.00" font-size="15" fill="#68d7e5" text-anchor="middle" font-weight="600" >F1 仍在采集 / 传输：20—40 ms（跨过当前10 ms窗）</text>
+<text x="28.00" y="555.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >舵机脉冲</text>
+<text x="28.00" y="577.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码50 Hz → 20 ms（换算，未测）</text>
+<rect x="234.00" y="539.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="555.00" font-size="11" fill="#8ae0b2" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="533.00" width="1120.00" height="65.00" rx="4" fill="#131f32" stroke="none" />
+<line x1="310.00" y1="584.00" x2="1430.00" y2="584.00" stroke="#8ae0b2" stroke-width="1.5" />
+<rect x="870.00" y="543.00" width="168.00" height="41.00" rx="0" fill="#1c4d3a" stroke="none" />
+<path d="M 870.00 584 V 543 H 1038.00 V 584" fill="none" stroke="#8ae0b2" stroke-width="2"/>
+<text x="877.00" y="570.00" font-size="13" fill="#8ae0b2" text-anchor="start" font-weight="600" >F-1 · 1.5 ms假设</text>
+<text x="28.00" y="650.00" font-size="17" fill="#ecf4ff" text-anchor="start" font-weight="650" >电机PWM</text>
+<text x="28.00" y="672.00" font-size="12" fill="#99adc7" text-anchor="start" font-weight="400" >代码17 kHz（未测）· 硬件连续</text>
+<rect x="234.00" y="634.00" width="54.00" height="23.00" rx="6" fill="#131f32" stroke="#2c3c54" />
+<text x="261.00" y="650.00" font-size="11" fill="#e99bd2" text-anchor="middle" font-weight="600" >硬件</text>
+<rect x="310.00" y="633.00" width="1120.00" height="31.00" rx="4" fill="url(#zoom-motor-pattern)" stroke="#e99bd2" />
+<g id="zoom-cursor" transform="translate(982.00 0)">
+<line x1="0.00" y1="211.00" x2="0.00" y2="674.00" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 5" opacity="0.9"/>
+<rect x="-47.00" y="180.00" width="94.00" height="24.00" rx="6" fill="#ecf4ff" stroke="none" />
+<text x="0.00" y="197.00" font-size="13" fill="#0b1220" text-anchor="middle" font-weight="700" id="zoom-cursor-label">26.00 ms</text>
+</g>
+<rect x="28.00" y="698.00" width="1424.00" height="62.00" rx="8" fill="#131f32" stroke="#2c3c54" />
+<text x="44.00" y="723.00" font-size="15" fill="#ecf4ff" text-anchor="start" font-weight="600" >相机20 ms与舵机20 ms是硬件时间，不从CPU10 ms预算里分摊；电机PWM持续自主输出。</text>
+<text x="44.00" y="746.00" font-size="13" fill="#99adc7" text-anchor="start" font-weight="400" >任务不是固定槽位，余量不是睡眠；其他10 ms窗可没有新帧。视觉可跨周期被PIT打断，本例假设2 ms未跨。</text>
+</g></svg></section>
+<section class="facts" aria-label="读图要点">
+<div class="fact"><strong>发布新图，会先改变转向目标</strong>22.25 ms发布F0后，TRACK的P/PD目标已更新；舵机命令限速及寄存器写入要到PIT30。图中的PIT来源是教学追踪标签，不是ControlSnapshot.frame_id。</div>
+<div class="fact"><strong>CPU条块来自事件，不是固定槽位</strong>6.75 ms是本窗未展开的主循环工作/预算，不能当实测空闲或睡眠。其他无新帧的10 ms窗不必运行视觉；视觉若跨周期，可以被可服务的PIT中断打断。</div>
+<div class="fact"><strong>通信和硬件各自有自己的节奏</strong>1 ms是一次收发服务的教学假设；代码设每轮运行服务截止预算2 ms，物理最坏耗时待实测，并非每10 ms总预算。运行波形最高10 Hz；电机代码配置17 kHz自主输出。舵机F号追踪命令依据，1.5 ms只是中位脉宽假设。</div>
+</section>
+<footer>完成事件在执行结束时成立；执行/高脉冲区间采用[开始,结束)。60 ms处CSI刚开始，PIT60仍等待，60.25 ms完成在图窗之外。静态两图默认观察26 ms。</footer>
+<noscript>浏览器已停用脚本；当前展示26 ms的静态示例。启用本地脚本后可拖动时间。</noscript>
+</main>
+<script>
+const model={"camera": [{"source": "F0", "start": 0, "end": 20}, {"source": "F1", "start": 20, "end": 40}, {"source": "F2", "start": 40, "end": 60}], "ticks": [{"due": 0, "start": 0, "end": 0.2, "source": "F-1"}, {"due": 10, "start": 10, "end": 10.2, "source": "F-1"}, {"due": 20, "start": 20.05, "end": 20.25, "source": "F-1"}, {"due": 30, "start": 30, "end": 30.2, "source": "F0"}, {"due": 40, "start": 40.05, "end": 40.25, "source": "F0"}, {"due": 50, "start": 50, "end": 50.2, "source": "F1"}, {"due": 60, "start": 60.05, "end": 60.25, "source": "F1"}], "vision": [{"source": "F0", "start": 20.25, "end": 22.25}, {"source": "F1", "start": 40.25, "end": 42.25}], "services": [{"kind": "pit", "start": 0, "end": 0.2, "label": "PIT 0 ms：视觉依据F-1，本次编码器用于速度PI"}, {"kind": "pit", "start": 10, "end": 10.2, "label": "PIT 10 ms：视觉依据F-1，本次编码器用于速度PI"}, {"kind": "csi", "start": 20, "end": 20.05, "label": "CSI：完成帧F0"}, {"kind": "pit", "start": 20.05, "end": 20.25, "label": "PIT 20 ms：视觉依据F-1，本次编码器用于速度PI"}, {"kind": "vision", "start": 20.25, "end": 22.25, "label": "视觉处理F0：发布后更新转向目标"}, {"kind": "io", "start": 22.25, "end": 23.25, "label": "一次运行收发服务示例：1 ms，非每帧波形发送"}, {"kind": "pit", "start": 30, "end": 30.2, "label": "PIT 30 ms：视觉依据F0，本次编码器用于速度PI"}, {"kind": "csi", "start": 40, "end": 40.05, "label": "CSI：完成帧F1"}, {"kind": "pit", "start": 40.05, "end": 40.25, "label": "PIT 40 ms：视觉依据F0，本次编码器用于速度PI"}, {"kind": "vision", "start": 40.25, "end": 42.25, "label": "视觉处理F1：发布后更新转向目标"}, {"kind": "io", "start": 42.25, "end": 43.25, "label": "一次运行收发服务示例：1 ms，非每帧波形发送"}, {"kind": "pit", "start": 50, "end": 50.2, "label": "PIT 50 ms：视觉依据F1，本次编码器用于速度PI"}, {"kind": "csi", "start": 60, "end": 60.05, "label": "CSI：完成帧F2"}, {"kind": "pit", "start": 60.05, "end": 60.25, "label": "PIT 60 ms：视觉依据F1，本次编码器用于速度PI"}], "pulses": [{"start": 5, "end": 6.5, "source": "F-1"}, {"start": 25, "end": 26.5, "source": "F-1"}, {"start": 45, "end": 46.5, "source": "F0"}], "plotLeft": 310, "plotRight": 1430};
+const slider=document.getElementById('time-slider');
+const last=(events,predicate)=>events.filter(predicate).at(-1)||null;
+const fmt=value=>Number(value).toFixed(2);
+// 完成事件不能提前到到期时刻；60ms边界的PIT仍等待CSI服务。
+function getTimelineState(time){
+  const t=Math.max(0,Math.min(60,Number(time)));
+  return {time:t,camera:last(model.camera,e=>e.end<=t),vision:last(model.vision,e=>e.end<=t),
+    pit:last(model.ticks,e=>e.end<=t),servo:last(model.pulses,e=>e.start<=t),
+    activity:model.services.find(e=>e.start<=t&&t<e.end)||null,
+    pending:model.ticks.find(e=>e.due<=t&&t<e.start)||null};
+}
+function setText(id,value){document.getElementById(id).textContent=value;}
+function update(time){
+  const state=getTimelineState(time),t=state.time;
+  slider.value=t;setText('time-value',fmt(t)+' ms');
+  setText('camera-frame',state.camera?state.camera.source:'F-1');
+  const capturing=model.camera.find(e=>e.start<=t&&t<e.end);
+  setText('camera-detail',(state.camera?'硬件完成于'+fmt(state.camera.end)+' ms。':'F-1在窗口前完成。')+(capturing?'正在采集'+capturing.source+'。':'后续采集未展开。'));
+  setText('vision-frame',state.vision?state.vision.source:'F-1');
+  setText('vision-detail',state.vision?'发布于'+fmt(state.vision.end)+' ms；转向目标已更新。':'窗口前已有有效结果。');
+  setText('pit-frame',state.pit?state.pit.source:'—');
+  setText('pit-detail',state.pit?'到期'+state.pit.due+' ms，执行'+fmt(state.pit.start)+'—'+fmt(state.pit.end)+' ms。速度PI用本次编码器。':'PIT0正在执行；窗口前PIT未展开。');
+  setText('servo-frame',state.servo?state.servo.source:'—');
+  setText('servo-detail',state.servo?'脉冲'+fmt(state.servo.start)+'—'+fmt(state.servo.end)+' ms；当前'+(t<state.servo.end?'处于高电平。':'为低电平，保留最近脉冲来源。'):'本窗口首个脉冲将在5 ms开始。');
+  setText('cpu-activity',state.activity?state.activity.label+'（'+fmt(state.activity.start)+'—'+fmt(state.activity.end)+' ms）':'其他主循环 / 未展开工作与预算；不表示CPU睡眠。');
+  setText('pending-pit',state.pending?'；PIT'+state.pending.due+'已到期，等待CSI结束。':'');
+  const cursor=document.getElementById('overview-cursor');
+  cursor.setAttribute('transform','translate('+(model.plotLeft+t/60*(model.plotRight-model.plotLeft))+' 0)');
+  setText('overview-cursor-label',fmt(t)+' ms');
+  // 放大图只涵盖20至30ms，其余时刻隐藏放大图游标而不伪造窗口。
+  const zoom=document.getElementById('zoom-cursor');
+  zoom.style.display=t>=20&&t<=30?'':'none';
+  zoom.setAttribute('transform','translate('+(model.plotLeft+(t-20)/10*(model.plotRight-model.plotLeft))+' 0)');
+  setText('zoom-cursor-label',fmt(t)+' ms');
+  setText('cursor-caption',fmt(t)+' ms（按假设推演）：采集 '+(state.camera?state.camera.source:'F-1')+' / 视觉 '+(state.vision?state.vision.source:'F-1')+'；最近完成PIT '+(state.pit?state.pit.due+' ms · '+state.pit.source:'未展开')+'；最近舵机脉冲 '+(state.servo?state.servo.source:'未到5 ms')+'。');
+  window.currentTimelineState=state;
+}
+window.getTimelineState=getTimelineState;
+slider.addEventListener('input',event=>update(event.target.value));
+document.getElementById('jump-26').addEventListener('click',()=>update(26));
+document.getElementById('jump-46').addEventListener('click',()=>update(46));
+update(26);
+</script>
+</body>
+</html>
+

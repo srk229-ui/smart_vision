@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "scope": "Flash校验及关闭输出诊断版实机协议，不代表每圈计数/RPM/PWM波形验收",
+  "real_measurements": false,
+  "long_count_device_seconds": 126.07,
+  "long_count_host_seconds": 125.89100000000326,
+  "long_count_export": "protocol_long_count.json",
+  "repeated_protocol_result": "protocol_fixed_result.json",
+  "initial_harness_result": "protocol_result_initial_harness_error.json",
+  "initial_harness_error": "附带Wi-Fi重连计数符号被链接器移除；原始失败记录保留，改为可选观测和模块状态检查后重跑通过",
+  "wifi_state_before": 2,
+  "wifi_state_after": 2,
+  "outputs_snapshot_zero": true,
+  "command_timeout_count": 0
+}

@@ -1,0 +1,8 @@
+{
+    "files.encoding": "gbk",
+    "files.autoGuessEncoding": true,
+    "files.candidateGuessEncodings": [
+        "utf8",
+        "gb2312"
+    ]
+}

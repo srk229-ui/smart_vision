@@ -1,0 +1,12 @@
+{
+  "hardware": "通信曾由用户验证；当前工作区尚未实测",
+  "initial_modified": [
+    "mdk/rt1064.uvprojx",
+    "mdk/rt1064.uvoptx"
+  ],
+  "date": "2026-10-12",
+  "branch": "main",
+  "commit": "8d700decd4ae73f44754906f7635bfb2ac428765",
+  "source_baseline": "初始源码无修改，HEAD.zip为源码基线；两个独立工程文件覆盖HEAD中对应文件后得到实施前工程配置",
+  "scope": "M0-M2软件立即连续推进，后续优先实机验证"
+}

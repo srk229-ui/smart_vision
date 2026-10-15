@@ -1,0 +1,66 @@
+[
+  {
+    "target": "nor_sdram_zf_dtcm",
+    "errors": 0,
+    "warnings": 0,
+    "size": {
+      "code": 56704,
+      "ro": 6816,
+      "rw": 308,
+      "zi": 107044
+    },
+    "axf_sha256": "a32a9ef17aa9a1eca34002358f2606c98625f7a00e7d76aa738446650b3fa6b6",
+    "memory": {},
+    "hardware_tested": false
+  },
+  {
+    "target": "calibration_readonly",
+    "errors": 0,
+    "warnings": 0,
+    "size": {
+      "code": 62512,
+      "ro": 6840,
+      "rw": 312,
+      "zi": 140964
+    },
+    "axf_sha256": "d936143860ecac9b64aea4da8176e236dfe4b67f492e415e970b091b9ccbb944",
+    "memory": {
+      "calibration_debug_mailbox": {
+        "address": "0x2000b5a0",
+        "bytes": 416,
+        "last_address": "0x2000b73f"
+      },
+      "calibration_debug_log": {
+        "address": "0x2000b740",
+        "bytes": 32768,
+        "last_address": "0x2001373f"
+      }
+    },
+    "hardware_tested": false
+  },
+  {
+    "target": "calibration_active",
+    "errors": 0,
+    "warnings": 0,
+    "size": {
+      "code": 62512,
+      "ro": 6840,
+      "rw": 312,
+      "zi": 140964
+    },
+    "axf_sha256": "a1a1ad9c687382f1eda5c5c7b6b62528ec327086fb318ce91d3e5a508c096b41",
+    "memory": {
+      "calibration_debug_mailbox": {
+        "address": "0x2000b5a0",
+        "bytes": 416,
+        "last_address": "0x2000b73f"
+      },
+      "calibration_debug_log": {
+        "address": "0x2000b740",
+        "bytes": 32768,
+        "last_address": "0x2001373f"
+      }
+    },
+    "hardware_tested": false
+  }
+]

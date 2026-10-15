@@ -1,0 +1,48 @@
+{
+  "basis": "SIM交付时245文件历史清单；本次用户授权应用候选1并提交",
+  "authorized_changed_files": [
+    {
+      "path": "docs/IMPLEMENTATION_REPORT.md",
+      "before_sha256": "51d4dcce3ed16840d4ca9d5640317532df42e680b86e4f291c2abcbbd300a555",
+      "after_sha256": "8e670ee19ec79038ea40a13faef5981f19444ae23231d14b2abac7ccff30bb12"
+    },
+    {
+      "path": "docs/MILESTONES.md",
+      "before_sha256": "c3404acf6202da571bc47a4ec612ac0ac7a40295418e7e143fe10beebddc3d97",
+      "after_sha256": "3ed31a7aff6b4734eab5f0082dc55909bb1811d019acee856405498255b41fd9"
+    },
+    {
+      "path": "docs/REVIEW_LOG.md",
+      "before_sha256": "c0ed8b11bbf13a24dec19cb43d8a784aba95630b9020c3083d56ff0339361971",
+      "after_sha256": "fe292d61e4a11cca98a3eb6275a38007c35fbd5d6084650094e27b32a72c2e4d"
+    },
+    {
+      "path": "docs/TODO.md",
+      "before_sha256": "1f6693016225cef525a5146f1a5f069c739d7dba334901161f5bc73abfafe3a1",
+      "after_sha256": "ea6d74e73b7917b9c447ba3bdaec6b463c1c4044f9bc8bd16886fd4a5af96c3e"
+    },
+    {
+      "path": "tools/update_report_index.py",
+      "before_sha256": "8155c3dbb33fe736ae06cb4a11d933ce806c92beebcbc504bbc6f326a28ef44e",
+      "after_sha256": "ad9a390521f89d3167e1ec5d0f94d7d4af07a5148a1d882e035cdf45898f3ce5"
+    },
+    {
+      "path": "tools/tests/test_control.c",
+      "before_sha256": "c9d37b6fa195c07bdf0b035d2c0623fd10ccfbdb429925c745a94309315b7832",
+      "after_sha256": "2f6f2bca958d18220a5c463b7fd645944d7068d06a80176a91d79fc0110daab6"
+    },
+    {
+      "path": "user/src/control.c",
+      "before_sha256": "a26ced19ef32d5b717cede8d5a31400b4e05632b4014f28ce8553960f8716c3b",
+      "after_sha256": "d0f68248a47fc5f99a5f70f137bb3ce5162701af39ca45ba2e5ba70af99cff5b"
+    },
+    {
+      "path": "user/src/pid.c",
+      "before_sha256": "06582beea61f7b04682976fbec75f935a556c0c1d66cfdfd8ac9474006a30f84",
+      "after_sha256": "8e1b04b5be65019ed1c0b7c721d04348ef92e6f10b06bc678dda322350881425"
+    }
+  ],
+  "other_original_files_unchanged": 237,
+  "historical_proof_preserved": true,
+  "hardware_tested": false
+}

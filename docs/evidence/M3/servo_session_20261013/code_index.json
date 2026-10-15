@@ -1,0 +1,687 @@
+[
+  {
+    "path": "user/src/calibration_clock.c",
+    "symbol": "calibration_clock_init",
+    "line": 7
+  },
+  {
+    "path": "user/src/calibration_clock.c",
+    "symbol": "calibration_clock_now_us",
+    "line": 32
+  },
+  {
+    "path": "user/src/encoder_measurement.c",
+    "symbol": "encoder_measurement_sample",
+    "line": 99
+  },
+  {
+    "path": "user/src/encoder_measurement.c",
+    "symbol": "encoder_measurement_get_snapshot",
+    "line": 155
+  },
+  {
+    "path": "user/src/encoder_measurement.c",
+    "symbol": "encoder_measurement_set_counts_per_rev",
+    "line": 162
+  },
+  {
+    "path": "user/src/steering_map.c",
+    "symbol": "steering_map_validate",
+    "line": 10
+  },
+  {
+    "path": "user/src/steering_map.c",
+    "symbol": "steering_map_us_to_angles",
+    "line": 47
+  },
+  {
+    "path": "user/src/steering_map.c",
+    "symbol": "steering_map_angle_to_us",
+    "line": 67
+  },
+  {
+    "path": "user/src/steering_map.c",
+    "symbol": "steering_map_apply",
+    "line": 107
+  },
+  {
+    "path": "user/src/calibration_debug.c",
+    "symbol": "calibration_debug_init",
+    "line": 438
+  },
+  {
+    "path": "user/src/calibration_debug.c",
+    "symbol": "calibration_debug_poll",
+    "line": 465
+  },
+  {
+    "path": "user/src/calibration_debug.c",
+    "symbol": "calibration_debug_before_tick",
+    "line": 517
+  },
+  {
+    "path": "user/src/calibration_debug.c",
+    "symbol": "calibration_debug_after_tick",
+    "line": 561
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_servo_cal",
+    "line": 404
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_calibration_bench",
+    "line": 395
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_apply_calibration_params",
+    "line": 304
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_stop_generation",
+    "line": 379
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "main",
+    "line": 917
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "attach_factory",
+    "line": 514
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "validate_encoder_measurements",
+    "line": 1030
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "validate_measurements",
+    "line": 1119
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "generate_profile",
+    "line": 1219
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "rpm_reference",
+    "line": 1252
+  },
+  {
+    "path": "user/src/main.c",
+    "symbol": "Init",
+    "line": 43
+  },
+  {
+    "path": "user/src/main.c",
+    "symbol": "main",
+    "line": 134
+  },
+  {
+    "path": "user/src/isr.c",
+    "symbol": "PIT_IRQHandler",
+    "line": 61
+  },
+  {
+    "path": "user/src/isr.c",
+    "symbol": "CSI_IRQHandler",
+    "line": 48
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "params_valid",
+    "line": 106
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_apply_params",
+    "line": 299
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_init",
+    "line": 185
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_run",
+    "line": 341
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_stop",
+    "line": 474
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_reset_fault",
+    "line": 484
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "latch_fault",
+    "line": 161
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_publish_vision",
+    "line": 530
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_tick",
+    "line": 594
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_get_snapshot",
+    "line": 691
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "frame_callback",
+    "line": 14
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_install",
+    "line": 35
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_take",
+    "line": 57
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_dropped",
+    "line": 98
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "get_hist_gram",
+    "line": 312
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "get_threshold_otsu",
+    "line": 331
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "binaryzation_process",
+    "line": 296
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "find_white_run",
+    "line": 39
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_process",
+    "line": 156
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_reset",
+    "line": 89
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_set_reference_width",
+    "line": 102
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_set_control_band",
+    "line": 117
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "Pid_Param_Init",
+    "line": 36
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "Pid_Reset",
+    "line": 56
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "PidLocCtrl",
+    "line": 107
+  },
+  {
+    "path": "user/src/main.c",
+    "symbol": "calibrate_width",
+    "line": 107
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "assistant_parameter_event",
+    "line": 127
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "apply_parameters",
+    "line": 136
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_take_width_calibration_request",
+    "line": 618
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "assistant_send",
+    "line": 57
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_init",
+    "line": 336
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_poll",
+    "line": 424
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_on_frame",
+    "line": 557
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_deadline_expired",
+    "line": 104
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_exchange_checked",
+    "line": 178
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_service_begin",
+    "line": 125
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_service_end",
+    "line": 149
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_data_analysis",
+    "line": 400
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_receive_reset",
+    "line": 493
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_init",
+    "line": 963
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_get_version",
+    "line": 464
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_wifi_connect",
+    "line": 620
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_socket_connect",
+    "line": 655
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_read_buffer",
+    "line": 879
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_abort_exchange",
+    "line": 164
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_wait_idle",
+    "line": 244
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_send_buffer",
+    "line": 784
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_transfer_data",
+    "line": 332
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_transfer_command",
+    "line": 299
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_send_buffer_multi",
+    "line": 1044
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_set_critical_hooks",
+    "line": 172
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_set_output_enabled",
+    "line": 234
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_get_params",
+    "line": 250
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "lock_control",
+    "line": 41
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "unlock_control",
+    "line": 46
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_now_ms",
+    "line": 706
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "reset_outputs",
+    "line": 144
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_report_link_fault",
+    "line": 501
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_report_invalid_fault",
+    "line": 516
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "clamp_value",
+    "line": 51
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "approach",
+    "line": 56
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_encoder.c",
+    "symbol": "encoder_quad_init",
+    "line": 151
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_encoder.c",
+    "symbol": "encoder_get_count",
+    "line": 119
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_encoder.c",
+    "symbol": "encoder_clear_count",
+    "line": 133
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_pit.c",
+    "symbol": "pit_init",
+    "line": 75
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_pwm.c",
+    "symbol": "pwm_set_duty",
+    "line": 98
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_pwm.c",
+    "symbol": "pwm_init",
+    "line": 129
+  },
+  {
+    "path": "../libraries/zf_common/zf_common_interrupt.c",
+    "symbol": "interrupt_init",
+    "line": 114
+  },
+  {
+    "path": "../libraries/zf_device/zf_device_mt9v03x.c",
+    "symbol": "mt9v03x_init",
+    "line": 415
+  },
+  {
+    "path": "../libraries/zf_device/zf_device_mt9v03x.c",
+    "symbol": "mt9v03x_finished_callback",
+    "line": 389
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_csi.c",
+    "symbol": "csi_init",
+    "line": 130
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_csi.c",
+    "symbol": "csi_get_full_buffer",
+    "line": 87
+  },
+  {
+    "path": "../libraries/zf_driver/zf_driver_csi.c",
+    "symbol": "csi_add_empty_buffer",
+    "line": 74
+  },
+  {
+    "path": "../libraries/sdk/drives/fsl_csi.c",
+    "symbol": "CSI_DriverIRQHandler",
+    "line": 1407
+  },
+  {
+    "path": "../libraries/sdk/drives/fsl_csi.c",
+    "symbol": "CSI_TransferHandleIRQ",
+    "line": 852
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "clip_column",
+    "line": 76
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "auxiliary_process",
+    "line": 386
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "pid_input_valid",
+    "line": 74
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "pid_integral_allowed",
+    "line": 92
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "PidIncCtrl",
+    "line": 190
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "constrain_float",
+    "line": 248
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant_interface.c",
+    "symbol": "seekfree_assistant_interface_init",
+    "line": 24
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_tick",
+    "line": 407
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_capture_raw",
+    "line": 530
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "show_state",
+    "line": 102
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_oscilloscope_send",
+    "line": 196
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_camera_information_config",
+    "line": 234
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_camera_boundary_config",
+    "line": 263
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_camera_send",
+    "line": 379
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_camera_data_send",
+    "line": 105
+  },
+  {
+    "path": "../libraries/zf_device/zf_device_tft180.c",
+    "symbol": "tft180_show_gray_image",
+    "line": 695
+  },
+  {
+    "path": "../libraries/zf_device/zf_device_tft180.c",
+    "symbol": "tft180_show_int",
+    "line": 519
+  },
+  {
+    "path": "../libraries/zf_device/zf_device_tft180.c",
+    "symbol": "tft180_show_float",
+    "line": 600
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "prepare_count_start",
+    "line": 641
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "interactive",
+    "line": 683
+  },
+  {
+    "path": "tools/calibrate_pyocd.py",
+    "symbol": "stop_and_wait",
+    "line": 286
+  },
+  {
+    "path": "tools/run_software_checks.py",
+    "symbol": "main",
+    "line": 61
+  },
+  {
+    "path": "tools/run_software_checks.py",
+    "symbol": "compile_test",
+    "line": 12
+  },
+  {
+    "path": "tools/run_software_checks.py",
+    "symbol": "keil_build",
+    "line": 42
+  },
+  {
+    "path": "tools/replay_vision.py",
+    "symbol": "build_library",
+    "line": 89
+  },
+  {
+    "path": "tools/replay_vision.py",
+    "symbol": "configure",
+    "line": 243
+  },
+  {
+    "path": "tools/replay_vision.py",
+    "symbol": "main",
+    "line": 309
+  },
+  {
+    "path": "tools/replay_vision.py",
+    "symbol": "check_shadow_case",
+    "line": 273
+  },
+  {
+    "path": "tools/update_report_index.py",
+    "symbol": "definition_line",
+    "line": 78
+  },
+  {
+    "path": "tools/update_report_index.py",
+    "symbol": "refresh_chapter_links",
+    "line": 134
+  },
+  {
+    "path": "tools/update_report_index.py",
+    "symbol": "main",
+    "line": 170
+  },
+  {
+    "path": "tools/render_control_timeline.py",
+    "symbol": "build_model",
+    "line": 22
+  },
+  {
+    "path": "tools/render_control_timeline.py",
+    "symbol": "state_at",
+    "line": 60
+  },
+  {
+    "path": "tools/check_comment_only.py",
+    "symbol": "canonical",
+    "line": 25
+  },
+  {
+    "path": "tools/check_comment_only.py",
+    "symbol": "main",
+    "line": 47
+  }
+]

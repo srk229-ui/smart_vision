@@ -1,0 +1,132 @@
+{
+  "generated_at": "2026-10-12T16:30:06.693616+08:00",
+  "firmware_sha256": "dfd881aaee297055273f769dc813331d7e01df34ffae85077b847942de1db364",
+  "hardware_tested": false,
+  "project_options_preserved": true,
+  "user_uvoptx_unchanged": true,
+  "source_files": [
+    {
+      "path": "user/src/camera_frame.c",
+      "sha256": "decf62ce0618fa9e1e2100244572c78c601fe9b6ea9072c85486d4e3f42bc651",
+      "bytes": 6402
+    },
+    {
+      "path": "user/src/control.c",
+      "sha256": "a056422a832037e4bd466146f48ce340da15e401bb71d78735498737405d86a8",
+      "bytes": 26729
+    },
+    {
+      "path": "user/src/img_process.c",
+      "sha256": "46ca48dcfbcae84642c48737287e59b3b2de15eafdf9a904f9b906d8d8a36c20",
+      "bytes": 23462
+    },
+    {
+      "path": "user/src/isr.c",
+      "sha256": "47ba5cc60ad86c6166857d6b0bcd0278af5fbe280ad0dba96aa26d7b2db6e5be",
+      "bytes": 11699
+    },
+    {
+      "path": "user/src/main.c",
+      "sha256": "447b05d06d88eb1aab312112580552cb341c501d1fb7388fc0acd20659cc6c77",
+      "bytes": 11390
+    },
+    {
+      "path": "user/src/pid.c",
+      "sha256": "06582beea61f7b04682976fbec75f935a556c0c1d66cfdfd8ac9474006a30f84",
+      "bytes": 14898
+    },
+    {
+      "path": "user/src/wifi_assistant.c",
+      "sha256": "0f6317c37d8a245d04a5a7e2340d402bd02c626ba8ca36b029ad37c5deef5748",
+      "bytes": 32852
+    },
+    {
+      "path": "user/inc/camera_frame.h",
+      "sha256": "f83f546f435ff12a8da73abdf8456f02f7faf16ee118dd7193468bb824bf2726",
+      "bytes": 1433
+    },
+    {
+      "path": "user/inc/control.h",
+      "sha256": "a9ba3cb9cf23f1dcb9b0d6da4052bce421e72b3fd383ff0590b17c724ad1b099",
+      "bytes": 4856
+    },
+    {
+      "path": "user/inc/control_types.h",
+      "sha256": "77dc95d3b003a4ca8eef84f659db09167480f7bc6ba609209ca0d7b2c5d34098",
+      "bytes": 11128
+    },
+    {
+      "path": "user/inc/img_process.h",
+      "sha256": "8644d161c45180b8ce1ce5e39bf6393e29ff71858db12c7e63b8ff5b4e19f21e",
+      "bytes": 5111
+    },
+    {
+      "path": "user/inc/isr.h",
+      "sha256": "ca84581f6686a0c1a88a5f211b286ec300257f9205ae6b3d909ab9f039518496",
+      "bytes": 999
+    },
+    {
+      "path": "user/inc/main.h",
+      "sha256": "f6ed9d1d2341a776ad6257179f320a02f310e85822455659235463a05e1c4fc7",
+      "bytes": 3823
+    },
+    {
+      "path": "user/inc/pid.h",
+      "sha256": "2ff12f0c561e764761b837a821e4e775837159f1720738122c957dedeb699c28",
+      "bytes": 6002
+    },
+    {
+      "path": "user/inc/RT106X_config.h",
+      "sha256": "b4a75866ac51ea3e1f555be554db51ec83ea0114d9793596594c4fda77036a27",
+      "bytes": 2692
+    },
+    {
+      "path": "user/inc/wifi_assistant.h",
+      "sha256": "7c6e4efbc9e10b73db685e10952396540fb13061457aa9d4567550d75373aa4f",
+      "bytes": 3166
+    },
+    {
+      "path": "user/inc/wifi_assistant_config.h",
+      "sha256": "4388a99e4eed36a796bd60b61a92c8030e17290f7bf14820376fb54544328e4a",
+      "bytes": 3713
+    },
+    {
+      "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+      "sha256": "7eb0958423482e38357e731759d360bb9b693848418e9cd89b987b3fe97ccba3",
+      "bytes": 48479
+    },
+    {
+      "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.h",
+      "sha256": "9fab47bc5063ad182235cd6974795ec4d2ba737d6d3c2e923451513051ca08be",
+      "bytes": 11678
+    },
+    {
+      "path": "mdk/rt1064.uvprojx",
+      "sha256": "7020cd5f4c5fb3b4ac0ff98c3ab85021113275203f3c9e2132b23d7c6995fd1a",
+      "bytes": 85925
+    },
+    {
+      "path": "../libraries/zf_components/seekfree_assistant.c",
+      "sha256": "dbb247ee755cde4198138d81af0a5639cc331ab4e91493b554af06526aa85d88",
+      "bytes": 23831
+    },
+    {
+      "path": "../libraries/zf_components/seekfree_assistant.h",
+      "sha256": "e224a4ab493d813a09b346667d133019aeef458251fab34a3648251b0229bdab",
+      "bytes": 8916
+    }
+  ],
+  "software_checks": {
+    "pi_checks": 20312,
+    "vision_groups": 6,
+    "wifi_scenarios": 27,
+    "width_scenarios": 7,
+    "camera_contract": "passed",
+    "control_contract": "passed",
+    "replay_frames": 12,
+    "replay_valid": 4,
+    "keil": "0 errors, 0 warnings",
+    "independent_review": "passed, no identified open P1/P2"
+  },
+  "revision": "M2-11至M2-13中文字段说明、VS Code索引、时序与周期实测计划；运行逻辑不变"
+}

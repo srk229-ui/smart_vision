@@ -1,0 +1,11 @@
+{
+  "user/inc/calibration_config.h": "b38be75783bf0697035cde3848e6039c86efec8fc546ef2779007a846d9cc154",
+  "user/inc/calibration_debug.h": "8626cfd64ca50d75693aeed16bfa3da1a7a8ce9309b9bb874bb057fdec0fcea0",
+  "user/src/calibration_debug.c": "fb2d5328412a43fb3092bda9a6279098d2c62ef5f94b9fd2a215204d38128f86",
+  "user/src/wifi_assistant.c": "ad38b04a035640218b94f4b86e8f04ab654ed63b46469fa9c3c7a94b6b2e27f4",
+  "tools/calibrate_pyocd.py": "6820d3a3b812a5e06ecc8e71f96f3e27143e9a3bf226dcdbdf10a746138ced7b",
+  "tools/tests/test_calibrate_pyocd.py": "5bff62b823cabab15ae544e5a92558a14c65efc1d5897c2be75be0ec39c09949",
+  "tools/tests/test_calibration_debug.c": "f1f4791acbda007adff2c87f623a9790ae8a7cfdc83a4f4d2ef900997edf09bb",
+  "tools/tests/test_calibration_integration.c": "b64e404af48b366f40ddc9a66cec31ed2f48c942a25525ba7347eabaf5c770b3",
+  "tools/tests/test_calibration_wifi.py": "722522a1b8451469db6028a443431d54c7cebb8b9eb2c4373882a66c3d755a82"
+}

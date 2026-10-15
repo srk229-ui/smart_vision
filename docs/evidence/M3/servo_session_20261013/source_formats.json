@@ -1,0 +1,16 @@
+{
+  "user/inc/calibration_config.h": "\n",
+  "user/inc/calibration_debug.h": "\n",
+  "user/src/calibration_debug.c": "\n",
+  "tools/calibrate_pyocd.py": "\n",
+  "tools/tests/test_calibrate_pyocd.py": "\n",
+  "tools/tests/test_calibration_debug.c": "\n",
+  "tools/tests/test_calibration_integration.c": "\n",
+  "docs/CALIBRATION_GUIDE.md": "\n",
+  "docs/IMPLEMENTATION_REPORT.md": "\n",
+  "docs/TODO.md": "\n",
+  "docs/MILESTONES.md": "\n",
+  "docs/REVIEW_LOG.md": "\n",
+  "user/src/wifi_assistant.c": "\r\n",
+  "tools/tests/test_calibration_wifi.py": "\n"
+}

@@ -1,0 +1,9 @@
+# 仓库外配套文件快照
+
+Git仓库根目录为demo。上级工作区的agent.md、AGENTS.md及libraries不在该仓库内；此目录以原字节保存本次使用的四份配套文件。共享C/H含合法包observer、剩余FIFO容量读取、接收复位及异常计数，必须与当前固件源码配套。
+
+manifest.json记录目标相对于工作区根目录的位置、长度和SHA256。原共享文件在evidence/M0/baseline_20261012/shared；当前副本在本目录libraries/zf_components。agent/AGENTS快照恢复到工作区根目录使用，其中的相对链接按原位置解析。
+
+恢复时先检出本次demo提交，保留同级libraries原有完整逐飞/NXP库。对照manifest核对四个目标，将本目录对应文件复制到工作区的相同相对位置；覆盖已有修改前先保存其副本，再完整构建。不需要改动20th_smart_vision。这个快照只包含当前任务改动的配套文件，不替代完整公共库、器件包或工具链。
+
+本目录是恢复材料；正在使用的工程仍读取上级真实libraries和根约定文件。固件源码与参数语义见IMPLEMENTATION_REPORT，实验/实机门槛以TODO为准。提交包含软件实现、工程配置、验证证据和文档；M3仍待现场验证，M4保持未解锁。
