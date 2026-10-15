@@ -1,0 +1,217 @@
+[
+  {
+    "path": "user/src/main.c",
+    "symbol": "Init",
+    "line": 43
+  },
+  {
+    "path": "user/src/main.c",
+    "symbol": "main",
+    "line": 110
+  },
+  {
+    "path": "user/src/isr.c",
+    "symbol": "PIT_IRQHandler",
+    "line": 61
+  },
+  {
+    "path": "user/src/isr.c",
+    "symbol": "CSI_IRQHandler",
+    "line": 48
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "params_valid",
+    "line": 55
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_apply_params",
+    "line": 203
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_init",
+    "line": 132
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_run",
+    "line": 237
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_request_stop",
+    "line": 263
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_reset_fault",
+    "line": 272
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "latch_fault",
+    "line": 109
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_publish_vision",
+    "line": 310
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_tick",
+    "line": 374
+  },
+  {
+    "path": "user/src/control.c",
+    "symbol": "control_get_snapshot",
+    "line": 450
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "frame_callback",
+    "line": 14
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_install",
+    "line": 35
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_take",
+    "line": 57
+  },
+  {
+    "path": "user/src/camera_frame.c",
+    "symbol": "camera_frame_dropped",
+    "line": 98
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "get_hist_gram",
+    "line": 312
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "get_threshold_otsu",
+    "line": 331
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "binaryzation_process",
+    "line": 296
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "find_white_run",
+    "line": 39
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_process",
+    "line": 156
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_reset",
+    "line": 89
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_set_reference_width",
+    "line": 102
+  },
+  {
+    "path": "user/src/img_process.c",
+    "symbol": "vision_set_control_band",
+    "line": 117
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "Pid_Param_Init",
+    "line": 36
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "Pid_Reset",
+    "line": 56
+  },
+  {
+    "path": "user/src/pid.c",
+    "symbol": "PidLocCtrl",
+    "line": 107
+  },
+  {
+    "path": "user/src/main.c",
+    "symbol": "calibrate_width",
+    "line": 83
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "assistant_parameter_event",
+    "line": 113
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "apply_parameters",
+    "line": 122
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_take_width_calibration_request",
+    "line": 598
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "assistant_send",
+    "line": 43
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_init",
+    "line": 322
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_poll",
+    "line": 410
+  },
+  {
+    "path": "user/src/wifi_assistant.c",
+    "symbol": "wifi_assistant_on_frame",
+    "line": 538
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_deadline_expired",
+    "line": 104
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_exchange_checked",
+    "line": 178
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_service_begin",
+    "line": 125
+  },
+  {
+    "path": "drivers/wifi_spi_v2/zf_device_wifi_spi.c",
+    "symbol": "wifi_spi_service_end",
+    "line": 149
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_data_analysis",
+    "line": 400
+  },
+  {
+    "path": "../libraries/zf_components/seekfree_assistant.c",
+    "symbol": "seekfree_assistant_receive_reset",
+    "line": 493
+  }
+]

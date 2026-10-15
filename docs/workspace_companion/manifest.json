@@ -1,0 +1,31 @@
+{
+  "saved_at": "2026-10-12T17:40:20.341577+08:00",
+  "purpose": "版本化保存demo仓库外的当前协作约定与共享接收改动",
+  "files": [
+    {
+      "workspace_relative_path": "agent.md",
+      "bundle_relative_path": "agent.md",
+      "sha256": "433018f6b00f931b32a660a1b919e0b19f1d1bf04158738c388630925b40b914",
+      "bytes": 4575
+    },
+    {
+      "workspace_relative_path": "AGENTS.md",
+      "bundle_relative_path": "AGENTS.md",
+      "sha256": "7832025c49fe838b5992fc3572a33f51663e225acf75101188d45c29d50b82a0",
+      "bytes": 190
+    },
+    {
+      "workspace_relative_path": "libraries/zf_components/seekfree_assistant.c",
+      "bundle_relative_path": "libraries/zf_components/seekfree_assistant.c",
+      "sha256": "dbb247ee755cde4198138d81af0a5639cc331ab4e91493b554af06526aa85d88",
+      "bytes": 23831
+    },
+    {
+      "workspace_relative_path": "libraries/zf_components/seekfree_assistant.h",
+      "bundle_relative_path": "libraries/zf_components/seekfree_assistant.h",
+      "sha256": "e224a4ab493d813a09b346667d133019aeef458251fab34a3648251b0229bdab",
+      "bytes": 8916
+    }
+  ],
+  "reference_project_modified": false
+}

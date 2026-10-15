@@ -1,0 +1,14 @@
+{
+  "target": "nor_sdram_zf_dtcm",
+  "errors": 0,
+  "warnings": 0,
+  "size": {
+    "code": 56720,
+    "ro": 6816,
+    "rw": 308,
+    "zi": 107044
+  },
+  "axf_sha256": "ff2662756751e5edbc9df09c495945c5535f7685a36764eb992dd81148937955",
+  "memory": {},
+  "hardware_tested": false
+}

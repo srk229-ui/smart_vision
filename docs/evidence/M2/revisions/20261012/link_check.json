@@ -1,0 +1,9 @@
+{
+  "links_verified": 43,
+  "all_targets_exist": true,
+  "all_fragments_match_real_definitions": true,
+  "format": "report-relative encoded path#Lline",
+  "gui_click_tested": false,
+  "vscode_local_version": "1.141.0",
+  "official_non_markdown_fragment_test": "https://github.com/microsoft/vscode/blob/main/extensions/markdown-language-features/src/test/documentLink.test.ts#L99"
+}

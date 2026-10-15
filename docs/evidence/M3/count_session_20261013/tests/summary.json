@@ -1,0 +1,15 @@
+{
+  "c_cases": [
+    "test_measurement",
+    "test_steering_map",
+    "test_servo_cal_control",
+    "test_servo_cal_control_enabled",
+    "test_calibration_debug",
+    "test_calibration_integration"
+  ],
+  "wifi_service_variants": 2,
+  "python_tests_passed": true,
+  "legacy_regression_passed": true,
+  "hardware_tested": false,
+  "python_tests_count": 42
+}

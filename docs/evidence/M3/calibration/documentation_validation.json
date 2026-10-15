@@ -1,0 +1,14 @@
+{
+  "function_links": 354,
+  "unique_definitions": 134,
+  "chapter_links": 220,
+  "local_links": 391,
+  "targets": [
+    "nor_sdram_zf_dtcm",
+    "calibration_readonly",
+    "calibration_active"
+  ],
+  "original_uvoptx_preserved": true,
+  "default_profile_uncalibrated": true,
+  "hardware_tested": false
+}

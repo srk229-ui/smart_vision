@@ -1,0 +1,8 @@
+{
+  "function_links_checked": 354,
+  "local_links_checked": 393,
+  "refresh_idempotent": true,
+  "build_log_axf_same_frozen_directory": true,
+  "hardware_tested": false,
+  "report_sha256": "8e670ee19ec79038ea40a13faef5981f19444ae23231d14b2abac7ccff30bb12"
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "user_selected_candidate": {
+    "kp": 100.0,
+    "ki_per_second": 1000.0
+  },
+  "candidate_is_synthetic": true,
+  "tests_passed": true,
+  "three_targets_errors": 0,
+  "three_targets_warnings": 0,
+  "hardware_tested": false,
+  "probe_connected": false,
+  "firmware_downloaded": false,
+  "m4_unlocked": false,
+  "original_baseline_files": 245,
+  "authorized_changes": 8,
+  "protected_simulation_files": {
+    "firmware/user/src/control.c": "a26ced19ef32d5b717cede8d5a31400b4e05632b4014f28ce8553960f8716c3b",
+    "firmware/user/src/pid.c": "06582beea61f7b04682976fbec75f935a556c0c1d66cfdfd8ac9474006a30f84",
+    "reports/demo/analysis.json": "ad4874a0b425404bffaf8f58f7a14dace1a3aee5939c26b35eaad0a1c3413b8a",
+    "reports/demo/candidates.json": "3c2400a447ef57ff2475daae83a03020b2ff485696adba963bec121526088be2",
+    "reports/demo/report.html": "b317e9cbf7db2d2795f4791926f738215fb8e36d4b238e335cde59655e3726bb",
+    "reports/pending/analysis.json": "16d897e62c18ed76f8ab8f84409a9f3853f77c23650b583cc281fcf51da829d3",
+    "reports/pending/candidates.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "reports/pending/report.html": "2061b69fd1bfe25bd0f47e3650abc6d2854fda7b8eea62634c3cb2a5e394afaf"
+  },
+  "independent_reviews": {
+    "pi_code_facts": "PASS；独立执行control与20312项PI检查；8保护哈希不变",
+    "interactive_report": "PASS；48冻结文件不变；354函数链接及三AXF核对",
+    "model_data_audit": "PASS；相关范围/缓存/凭据/仓库外配套快照核对"
+  },
+  "reviewed_at": "2026-10-13T18:16:34.062007+08:00",
+  "whitespace_review": {
+    "changed_sources_and_docs": "PASS",
+    "preserved_existing_exception": "tools/calibrate_pyocd.py:1136原尾部空行",
+    "historical_sources_reformatted": false
+  }
+}

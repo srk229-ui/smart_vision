@@ -1,0 +1,52 @@
+[
+  {
+    "file": "user/inc/calibration_config.h",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "user/inc/calibration_debug.h",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "user/src/calibration_debug.c",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "user/src/wifi_assistant.c",
+    "newline": "CRLF",
+    "preserved": true
+  },
+  {
+    "file": "tools/calibrate_pyocd.py",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "tools/build_calibration.py",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "tools/run_calibration_checks.py",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "tools/tests/test_calibrate_pyocd.py",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "tools/tests/test_calibration_debug.c",
+    "newline": "LF",
+    "preserved": true
+  },
+  {
+    "file": "tools/tests/test_calibration_integration.c",
+    "newline": "LF",
+    "preserved": true
+  }
+]

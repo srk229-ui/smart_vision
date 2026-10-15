@@ -1,0 +1,7 @@
+parameters.c
+PASS V1 manual request contract (10 scenarios)
+spi.c
+PASS checked SPI normal, alias, busy, TX, RX, error, shared receive/send deadline and wrap (10 scenarios)
+parser.c
+PASS actual FIFO + V1 parser + observer + apply: STOP orders, bad checksum, reconnect, 3B+128B burst, receive error (7 scenarios)
+Software-only evidence: no physical module, PWM or timing validation.

@@ -1,0 +1,11 @@
+{
+  "probe": "80941C44-B8F862DC2544",
+  "firmware": "D:\\镜头组\\demo\\docs\\evidence\\M3\\candidate1_20261013\\builds\\calibration_readonly\\firmware.axf",
+  "sha256": "d936143860ecac9b64aea4da8176e236dfe4b67f492e415e970b091b9ccbb944",
+  "build_id": "6ab1bc88",
+  "target": "calibration_readonly",
+  "verified": false,
+  "backup": "D:\\镜头组\\demo\\calibration_records\\flash_20261013_215126_df8a59\\before_flash_70000000_00020000.bin",
+  "backup_sha256": "f09b195cf81b76712103787ad610ab2030a08606b83d032ea882e59f7a33804c",
+  "error": "SWD/JTAG communication failure (No ACK); check USB cable, reduce debugger clock"
+}

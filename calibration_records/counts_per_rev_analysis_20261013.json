@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "type": "single_run_counts_analysis",
+  "date": "2026-10-13",
+  "accepted_runs": [
+    {
+      "wheel": "left",
+      "file": "left_01.json",
+      "sha256": "d10451b4c0aba9c32ba39110517e5c3d1d58a0462a754351412a70ee49ab002a",
+      "run_id": 42,
+      "build_id": "65ac41b9",
+      "start_total": -26082,
+      "end_total": -49415,
+      "net_counts": -23333,
+      "turns": 10,
+      "turns_basis": "按指南及此前会话每组10圈约定；原始JSON未填写人工圈数条目",
+      "counts_per_wheel_rev": 2333.3,
+      "manual_turns_recorded_in_export": false
+    },
+    {
+      "wheel": "right",
+      "file": "right_02.json",
+      "sha256": "4d47816997c0a63144a31f99a1f8814bd4c479e211188553717886c5ab29b13f",
+      "run_id": 45,
+      "build_id": "65ac41b9",
+      "start_total": 50473,
+      "end_total": 73315,
+      "net_counts": 22842,
+      "turns": 10,
+      "turns_basis": "按指南及此前会话每组10圈约定；原始JSON未填写人工圈数条目",
+      "counts_per_wheel_rev": 2284.2,
+      "manual_turns_recorded_in_export": false
+    }
+  ],
+  "excluded_runs": [
+    {
+      "file": "right_01.json",
+      "sha256": "fa05fd84a983af3fab050563296838a4d74299d40c5185473ff26ec3d4b0ac83",
+      "reason": "操作者确认多转一圈，排除于每圈计数计算"
+    }
+  ],
+  "validation_status": "左右各1组的每圈平均估计；未完成指南规定的正反转各3组重复性验证",
+  "counts_applied_to_firmware": false
+}

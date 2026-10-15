@@ -1,0 +1,25 @@
+{
+  "target": "calibration_readonly",
+  "errors": 0,
+  "warnings": 0,
+  "size": {
+    "code": 62496,
+    "ro": 6840,
+    "rw": 308,
+    "zi": 140968
+  },
+  "axf_sha256": "e97b7a397b4d4fab33ea7babbda5d4139226162c8e5199791958cb9867864bda",
+  "memory": {
+    "calibration_debug_mailbox": {
+      "address": "0x2000b5a0",
+      "bytes": 416,
+      "last_address": "0x2000b73f"
+    },
+    "calibration_debug_log": {
+      "address": "0x2000b740",
+      "bytes": 32768,
+      "last_address": "0x2001373f"
+    }
+  },
+  "hardware_tested": false
+}

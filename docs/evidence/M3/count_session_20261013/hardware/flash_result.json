@@ -1,0 +1,12 @@
+{
+  "firmware": "D:\\镜头组\\demo\\docs\\evidence\\M3\\count_session_20261013\\builds\\calibration_readonly\\firmware.axf",
+  "build_id": "65ac41b9",
+  "sha256": "c1185c7c64518714736cfcdb2da55f5e674bd8aa0310def2bbadafdfcbc38540",
+  "probe": "80941C44-B8F862DC2544",
+  "verified": true,
+  "reset": "SYSRESETREQ",
+  "frequency": 100000,
+  "backup_sha256": "a2c00bacae4adfc2a66db697a33b3f6dbedc3e3616ac3705c8745edb9467fdd6",
+  "algorithm_sha256": "a83769b19bf0ca962ad74d8c644c763ed3725b2f8d7f0efc0d8a5d8f46633d59",
+  "cpu_state": "State.RUNNING"
+}

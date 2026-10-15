@@ -1,0 +1,28 @@
+{
+  "scope": "本次本地Git提交前检查",
+  "staged_before_preflight_record": 153,
+  "active_source_hashes_checked": 22,
+  "workspace_companion_hashes_checked": 4,
+  "generated_cache_staged": false,
+  "application_and_main_documentation_whitespace_pass": true,
+  "preserved_raw_evidence_formatting": {
+    "docs/evidence/M0/baseline_20261012/shared/seekfree_assistant.c": 16,
+    "docs/evidence/M0/baseline_20261012/shared/seekfree_assistant.h": 32,
+    "docs/evidence/M0/baseline_20261012/user_project_changes.patch": 1,
+    "docs/evidence/M0/keil_rebuild.log": 1,
+    "docs/evidence/M2/firmware.map": 2,
+    "docs/evidence/M2/independent_review.log": 1,
+    "docs/evidence/M2/revisions/20261012/firmware.map.before_revision": 2,
+    "docs/evidence/M2/revisions/20261012/functional_analysis/drafts/vision.md": 1,
+    "docs/evidence/M2/revisions/20261012/keil_rebuild.log.before_revision": 1,
+    "docs/evidence/M2/revisions/20261012/line_comments/before_firmware.map": 2,
+    "docs/evidence/M2/revisions/20261012/line_comments/before_keil_rebuild.log": 1,
+    "docs/evidence/M2/revisions/20261012/line_comments/keil_rebuild.log": 1,
+    "docs/visualizations/control_timeline.html": 1,
+    "docs/workspace_companion/libraries/zf_components/seekfree_assistant.c": 16,
+    "docs/workspace_companion/libraries/zf_components/seekfree_assistant.h": 32
+  },
+  "reason": "原字节备份、构建/链接日志及已验证生成图形保留既有格式与冻结哈希，不修改验收原件",
+  "parent_commit": "8d700de",
+  "hardware_tested": false
+}

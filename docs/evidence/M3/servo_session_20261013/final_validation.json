@@ -1,0 +1,23 @@
+{
+  "python_tests": 52,
+  "c_groups": 6,
+  "wifi_variants": 2,
+  "legacy_regression_passed": true,
+  "build_targets": 3,
+  "build_errors": 0,
+  "build_warnings": 0,
+  "flash_byte_verified": true,
+  "active_boot_zero_ready": true,
+  "automatic_actuator_start": false,
+  "manual_actuator_measurement_accepted": false,
+  "encoder_raw_files_preserved": {
+    "left_01.json": "d10451b4c0aba9c32ba39110517e5c3d1d58a0462a754351412a70ee49ab002a",
+    "right_02.json": "4d47816997c0a63144a31f99a1f8814bd4c479e211188553717886c5ab29b13f"
+  },
+  "initial_errors_preserved": true,
+  "m3_13_software_accepted": true,
+  "independent_review_passed": true,
+  "final_console_pid": 1628,
+  "final_host_tool_sha256": "6820d3a3b812a5e06ecc8e71f96f3e27143e9a3bf226dcdbdf10a746138ced7b",
+  "source_manifest_matches": true
+}

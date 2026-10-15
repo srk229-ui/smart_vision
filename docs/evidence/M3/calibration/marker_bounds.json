@@ -1,0 +1,22 @@
+{
+  "coordinate": [
+    112,
+    112
+  ],
+  "size": [
+    16,
+    16
+  ],
+  "portrait": [
+    128,
+    160
+  ],
+  "landscape": [
+    160,
+    128
+  ],
+  "inside_both": true,
+  "outside_125x100_image": true,
+  "source": "libraries/zf_device/zf_device_tft180.c:tft180_set_dir",
+  "hardware_optical_tested": false
+}

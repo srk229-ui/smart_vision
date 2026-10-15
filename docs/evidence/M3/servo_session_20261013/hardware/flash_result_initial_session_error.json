@@ -1,0 +1,9 @@
+{
+  "firmware": "D:\\镜头组\\demo\\docs\\evidence\\M3\\servo_session_20261013\\builds\\calibration_active\\firmware.axf",
+  "build_id": "ba2bd01a",
+  "sha256": "ed6535372ff699195b1c0ffc73485e83f41f9897571a960700077ea7bfa39c34",
+  "probe": "80941C44-B8F862DC2544",
+  "verified": false,
+  "automatic_actuator_start": false,
+  "error": "'SoCTarget has no selected core'"
+}

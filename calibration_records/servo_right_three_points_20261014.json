@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "type": "partial_right_servo_measurement_analysis",
+  "reported_on": "2026-10-14",
+  "measurement_date_confirmed": null,
+  "wheel": "right",
+  "angle_reference": "相对车身纵轴；平行为0度；俯视车头朝前，左转为正、右转为负（操作者确认）",
+  "provenance": {
+    "real_measurements": true,
+    "angle_source": "操作者在对话中提供，并确认右前轮",
+    "instrument_measured_pulse_us_confirmed": null,
+    "angle_in_original_export": false,
+    "angle_to_sample_timestamp_association": null
+  },
+  "run_export": "servo_01.json",
+  "run_export_sha256": "054799fc24239e7a2d3478f99477b20b4b5fb448315241c0f707d4a153db6463",
+  "firmware_build_id": "ba2bd01a",
+  "firmware_elf_sha256": "ed6535372ff699195b1c0ffc73485e83f41f9897571a960700077ea7bfa39c34",
+  "raw_run_validation": {
+    "frozen_manual_end": true,
+    "recording_mode": "servo_events",
+    "all_motor_pwm_zero": true,
+    "all_reported_pulses_present_as_nominal_us": true,
+    "duration_us_modulo_2_32": 811650000
+  },
+  "measured_points": [
+    {
+      "pulse_us": 1444.0,
+      "right_deg": -13.0
+    },
+    {
+      "pulse_us": 1526.0,
+      "right_deg": 5.0
+    },
+    {
+      "pulse_us": 1610.0,
+      "right_deg": 17.0
+    }
+  ],
+  "left_front_wheel_points": null,
+  "approach_direction": null,
+  "repeat_number": null,
+  "model": {
+    "kind": "piecewise_linear",
+    "segments": [
+      {
+        "min_us": 1444.0,
+        "max_us": 1526.0,
+        "slope_deg_per_us": 0.21951219512195122,
+        "anchor_us": 1444.0,
+        "anchor_right_deg": -13.0
+      },
+      {
+        "min_us": 1526.0,
+        "max_us": 1610.0,
+        "slope_deg_per_us": 0.14285714285714285,
+        "anchor_us": 1526.0,
+        "anchor_right_deg": 5.0
+      }
+    ],
+    "right_wheel_parallel_zero_estimate_us": 1503.2222222222222,
+    "zero_is_interpolated_not_measured": true
+  },
+  "suggested_next_measurement": {
+    "request_us": 1504.0,
+    "integer_duty": 752,
+    "nominal_grid_us": 2.0,
+    "predicted_right_deg": 0.17073170731707243,
+    "measured_right_deg": null
+  },
+  "validation_status": "右前轮单次三点初步关系；零角、左轮、增减方向重复、回差和中间点仍待测",
+  "applied_to_firmware": false,
+  "corrections": [
+    {
+      "corrected_on": "2026-10-14",
+      "source": "操作者本轮明确更正1444和1610对应角度弄反了",
+      "previous_sha256": "1c104043d1ab268bb8b53bcdf7cbc66fae7ba55ed27b72c587a4befa61d0b0bf",
+      "previous_points": [
+        [
+          1444.0,
+          17.0
+        ],
+        [
+          1526.0,
+          5.0
+        ],
+        [
+          1610.0,
+          -13.0
+        ]
+      ],
+      "corrected_points": [
+        [
+          1444.0,
+          -13.0
+        ],
+        [
+          1526.0,
+          5.0
+        ],
+        [
+          1610.0,
+          17.0
+        ]
+      ],
+      "backup": "../docs/evidence/M3/servo_points_correction_20261014/before.zip"
+    }
+  ]
+}

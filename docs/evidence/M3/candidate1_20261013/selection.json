@@ -1,0 +1,216 @@
+{
+  "candidate": {
+    "kp": 100.0,
+    "ki": 1000.0,
+    "score": 0.010250599145681175,
+    "eligible": false,
+    "simulation_passed": true,
+    "metrics": [
+      {
+        "wheel": "left",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.008331572158271985,
+        "overshoot_pct": 1.1200135374236364,
+        "steady_error_mps": 1.5076562630583767e-05,
+        "settling_s": 0.07000000000000003,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.008613880924238402,
+        "overshoot_pct": 2.1017612416682097,
+        "steady_error_mps": 2.3804534567295477e-05,
+        "settling_s": 0.060000000000000026,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.008819912203101327,
+        "overshoot_pct": 0.1382658331767983,
+        "steady_error_mps": 8.530583678223458e-06,
+        "settling_s": 0.040000000000000036,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.009215372369453774,
+        "overshoot_pct": 0.9236639965720217,
+        "steady_error_mps": 1.0909964920702286e-05,
+        "settling_s": 0.050000000000000044,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.00863998436780675,
+        "overshoot_pct": 0.1382658331767983,
+        "steady_error_mps": 1.706116735622487e-05,
+        "settling_s": 0.010000000000000009,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.008913417901520171,
+        "overshoot_pct": 0.3346153740239277,
+        "steady_error_mps": 2.379381242700873e-06,
+        "settling_s": 0.010000000000000009,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "nominal"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.00894555742496794,
+        "overshoot_pct": 2.1017612416682097,
+        "steady_error_mps": 4.363985968341977e-06,
+        "settling_s": 0.060000000000000026,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.010176517165304686,
+        "overshoot_pct": 5.047004354408635,
+        "steady_error_mps": 1.5076562630583767e-05,
+        "settling_s": 0.1400000000000001,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.00947591418921727,
+        "overshoot_pct": 0.9236639965720217,
+        "steady_error_mps": 1.0909964920702286e-05,
+        "settling_s": 0.040000000000000036,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.010250599145681175,
+        "overshoot_pct": 2.4944603233669094,
+        "steady_error_mps": 1.0909964920702286e-05,
+        "settling_s": 0.050000000000000044,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.009317186252671064,
+        "overshoot_pct": 0.5309649148732998,
+        "steady_error_mps": 2.1819929841404573e-05,
+        "settling_s": 0.020000000000000018,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.009727026746759881,
+        "overshoot_pct": 1.3163630782707436,
+        "steady_error_mps": 2.379381242700873e-06,
+        "settling_s": 0.020000000000000018,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "low_gain_slow"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.00926670175782711,
+        "overshoot_pct": 1.1200135374236364,
+        "steady_error_mps": 4.363985968341977e-06,
+        "settling_s": 0.07000000000000003,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.2,
+        "normalized_iae": 0.008462452450848215,
+        "overshoot_pct": 1.1200135374236364,
+        "steady_error_mps": 4.363985968397488e-06,
+        "settling_s": 0.060000000000000026,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.00861009529687365,
+        "overshoot_pct": 0.5309649148755202,
+        "steady_error_mps": 1.0909964920702286e-05,
+        "settling_s": 0.040000000000000036,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 0.5,
+        "normalized_iae": 0.008739934440393976,
+        "overshoot_pct": 0.5309649148755202,
+        "steady_error_mps": 1.0909964920702286e-05,
+        "settling_s": 0.040000000000000036,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      },
+      {
+        "wheel": "left",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.00830762897344365,
+        "overshoot_pct": 0.33461537402617036,
+        "steady_error_mps": 2.379381242700873e-06,
+        "settling_s": 0.010000000000000009,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      },
+      {
+        "wheel": "right",
+        "speed_mps": 1.0,
+        "normalized_iae": 0.008479887143420644,
+        "overshoot_pct": 0.1382658331767983,
+        "steady_error_mps": 2.379381242700873e-06,
+        "settling_s": 0.010000000000000009,
+        "saturation_fraction": 0.0,
+        "passed": true,
+        "scenario": "high_gain_fast"
+      }
+    ],
+    "id": "candidate_1"
+  },
+  "user_requested_application": true,
+  "source": "合成演示候选1，用户明确选用；尚未实测验证",
+  "kp_units": "PWM/(counts/10ms)",
+  "ki_units": "PWM/[(counts/10ms)*s]",
+  "hardware_tested": false,
+  "report_sha256": "ad4874a0b425404bffaf8f58f7a14dace1a3aee5939c26b35eaad0a1c3413b8a"
+}

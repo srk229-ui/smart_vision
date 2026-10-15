@@ -1,0 +1,15 @@
+name,evidence_type,frame_id,replay_time_ms,threshold,valid,track_lost,error_px,confidence,valid_rows,reconstructed_rows,control_row_quality,expected_valid,expectation_passed
+straight_synthetic,synthetic,1,20,45,1,0,0.000,1.000,120,0,2;2;2;2;2,,
+left_bend_synthetic,synthetic,2,40,45,1,0,7.700,1.000,120,0,2;2;2;2;2,,
+right_bend_synthetic,synthetic,3,60,45,1,0,-6.900,1.000,120,0,2;2;2;2;2,,
+s_bend_synthetic,synthetic,4,80,45,1,0,-13.500,1.000,120,0,2;2;2;2;2,,
+shadow_readable_synthetic,synthetic,5,100,45,1,0,0.000,1.000,120,0,2;2;2;2;2,1,True
+shadow_deep_synthetic,synthetic,6,120,45,0,1,0.000,0.000,86,0,0;0;0;0;0,0,True
+all_black_synthetic,synthetic,7,140,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+all_white_synthetic,synthetic,8,160,255,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+uniform_gray_synthetic,synthetic,9,180,127,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+one_edge_1_synthetic,synthetic,10,200,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+one_edge_2_synthetic,synthetic,11,220,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+one_edge_3_synthetic,synthetic,12,240,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+one_edge_4_synthetic,synthetic,13,260,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,
+one_edge_5_synthetic,synthetic,14,280,0,0,1,0.000,0.000,0,0,0;0;0;0;0,,

@@ -1,0 +1,21 @@
+{
+  "reviewer": "/root/review_count_changes",
+  "read_only": true,
+  "passed": true,
+  "remaining_blockers": [],
+  "python_tests": 52,
+  "scope": [
+    "SERVO无固定时限/事件日志/末尾停止槽",
+    "慢速斜坡与GPT回绕真实C集成",
+    "END实际零输出冻结",
+    "restart STOP匹配/丢弃/人工RUN及取消",
+    "旧能力零写/ACK不确定/故障拒绝",
+    "RPM8秒与连续日志保留",
+    "Wi-Fi独占SERVO豁免与STOP竞态",
+    "稀疏时间/零电机/末尾零舵机校验",
+    "格式/构建哈希"
+  ],
+  "independent_targeted_checks_passed": true,
+  "probe_connected_by_reviewer": false,
+  "physical_servo_waveform_or_mechanics_accepted": false
+}

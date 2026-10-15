@@ -1,0 +1,14 @@
+{
+  "source": "estimated_current_camera_not_measured",
+  "height_m": 0.22,
+  "forward_m": 0.18,
+  "lateral_m": 0.0,
+  "pitch_deg": 25.0,
+  "yaw_deg": 0.0,
+  "roll_deg": 0.0,
+  "hfov_deg": 90.0,
+  "intrinsics": null,
+  "distortion": [0, 0, 0, 0, 0],
+  "homography_image_to_ground": null,
+  "road_width_m": 0.45
+}

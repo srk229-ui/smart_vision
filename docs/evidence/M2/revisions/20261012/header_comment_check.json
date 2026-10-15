@@ -1,0 +1,9 @@
+{
+  "original_sha256": "0002a8f54609f85ef4201fb0d44c1c6b164a41fb702f83a554d548e90621e123",
+  "annotated_sha256": "77dc95d3b003a4ca8eef84f659db09167480f7bc6ba609209ca0d7b2c5d34098",
+  "declaration_tokens_unchanged": true,
+  "all_struct_fields_documented": 61,
+  "macros_and_enum_values_documented": 17,
+  "encoding": "UTF-8",
+  "line_endings": "CRLF"
+}

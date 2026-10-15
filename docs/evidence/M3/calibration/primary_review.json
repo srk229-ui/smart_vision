@@ -1,0 +1,91 @@
+{
+  "software_task": "M3-07",
+  "status": "accepted",
+  "c_test_groups": 6,
+  "python_tests": 35,
+  "legacy_regression": "PASS",
+  "builds": [
+    {
+      "target": "nor_sdram_zf_dtcm",
+      "errors": 0,
+      "warnings": 0,
+      "size": {
+        "code": 56672,
+        "ro": 6816,
+        "rw": 304,
+        "zi": 107048
+      },
+      "axf_sha256": "9a4591598b1283b439106d91cd37c48fac85cf2ff7ccc104f9908d508fe10e14",
+      "memory": {},
+      "hardware_tested": false
+    },
+    {
+      "target": "calibration_readonly",
+      "errors": 0,
+      "warnings": 0,
+      "size": {
+        "code": 62496,
+        "ro": 6840,
+        "rw": 308,
+        "zi": 140968
+      },
+      "axf_sha256": "e97b7a397b4d4fab33ea7babbda5d4139226162c8e5199791958cb9867864bda",
+      "memory": {
+        "calibration_debug_mailbox": {
+          "address": "0x2000b5a0",
+          "bytes": 416,
+          "last_address": "0x2000b73f"
+        },
+        "calibration_debug_log": {
+          "address": "0x2000b740",
+          "bytes": 32768,
+          "last_address": "0x2001373f"
+        }
+      },
+      "hardware_tested": false
+    },
+    {
+      "target": "calibration_active",
+      "errors": 0,
+      "warnings": 0,
+      "size": {
+        "code": 62496,
+        "ro": 6840,
+        "rw": 308,
+        "zi": 140968
+      },
+      "axf_sha256": "f2c94ae48dc7b1b09925ac6113114324ca8bf009bb46b32f276eb59b50f62cf4",
+      "memory": {
+        "calibration_debug_mailbox": {
+          "address": "0x2000b5a0",
+          "bytes": 416,
+          "last_address": "0x2000b73f"
+        },
+        "calibration_debug_log": {
+          "address": "0x2000b740",
+          "bytes": 32768,
+          "last_address": "0x2001373f"
+        }
+      },
+      "hardware_tested": false
+    }
+  ],
+  "code_index_definitions": 134,
+  "chapter_links": 220,
+  "total_function_links": 354,
+  "independent_control_review": "PASS after closure",
+  "independent_host_review": "PASS, four P2 closed",
+  "marker_inside_both_orientations": true,
+  "uvoptx_preserved": true,
+  "default_profile_uncalibrated": true,
+  "source_manifest_sha256": "d4faf1cde494527681dfe094f3f896a453a59585da9ee388195d19366b36c2ba",
+  "hardware_tested": false,
+  "physical_tasks_pending": [
+    "M3-01",
+    "M3-03",
+    "M3-08",
+    "M3-09",
+    "R50 and route acceptance"
+  ],
+  "no_flash_or_actuator_operation": true
+}
